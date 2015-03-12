@@ -212,7 +212,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\account.ctrl.js" />
-    <Content Include="App\account.service.js" />
+    <Content Include="App\DemoDebug\demodebug.html" />
+    <Content Include="App\Landing\landing.html" />
+    <Content Include="App\Services\account.service.js" />
     <Content Include="App\app.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
@@ -241,6 +243,8 @@
     <Content Include="Scripts\angular-scenario.js" />
     <Content Include="Scripts\angular-touch.js" />
     <Content Include="Scripts\angular-touch.min.js" />
+    <Content Include="Scripts\angular-ui-router.js" />
+    <Content Include="Scripts\angular-ui-router.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -1044,8 +1048,6 @@
     <Content Include="Scripts\version.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\DemoDebug\" />
-    <Folder Include="App\Landing\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
