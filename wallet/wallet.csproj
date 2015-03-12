@@ -211,8 +211,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\main.register.ctlr.js" />
-    <Content Include="App\main.services.js" />
+    <Content Include="App\account.ctrl.js" />
+    <Content Include="App\account.service.js" />
     <Content Include="App\app.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1044,8 +1044,8 @@
     <Content Include="Scripts\version.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\ViewA\" />
-    <Folder Include="App\ViewB\" />
+    <Folder Include="App\DemoDebug\" />
+    <Folder Include="App\Landing\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

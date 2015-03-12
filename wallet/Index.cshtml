@@ -7,14 +7,11 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
-    <div class="container body-content">
-        <div class="row" ng-app="Wallet">
-            <div class="col-md-4" ng-controller="Register as reg">
-                <p>{{reg.user}}</p>
-                <p>{{reg.pass}}</p>
-                <h3>P: </h3>
-                <p>{{reg.s}}</p>
+<body ng-app="Wallet">
+    <div class="container body-content" ng-controller="AccManage as main">
+        <div class="row">
+            <div class="col-md-4" >
+                <h2>Register</h2>
                 <form ng-submit="reg.submit()">
                     <strong>Username</strong>
                     <input type="text" class="form-control" name="user" ng-model="reg.user" />
@@ -25,15 +22,20 @@
             </div>
         </div>
         <hr />
-        <footer>
-            <p>&copy; 2015 - Voo </p>
-        </footer>
+        <h4>Users</h4>
+        <ul>
+            <li ng-repeat="user in Account.users()">{{user}}</li>
+        </ul>
     </div>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/App/app.js"></script>
-    <script src="~/App/main.register.ctlr.js"></script>
+    <!-- Areas -->
+    <script src="~/App/account.ctrl.js"></script>
+    <script src="~/App/account.service.js"></script>
+        <!-- DemoDebug -->
+        <!-- Landing -->
 </body>
 </html>
