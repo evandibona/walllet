@@ -4,7 +4,7 @@
         .config(config) 
 
     function config($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise("/demodebug")
+        $urlRouterProvider.otherwise("/")
 
         $stateProvider
             .state('demodebug', {
@@ -12,7 +12,7 @@
                 templateUrl: "App/DemoDebug/demodebug.html"
             })
             .state('landing', {
-                url: "/landing",
+                url: "/",
                 templateUrl: "App/Landing/landing.html"
             })
     }

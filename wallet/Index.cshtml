@@ -7,12 +7,7 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 </head>
-<body ng-app="Wallet">
-
-    <a ui-sref="demodebug">DemoDebug</a>
-    <a ui-sref="landing">Landing Page</a>
-    <hr />
-    <div ui-view></div>
+<body ng-app="Wallet" ui-view>
 
 <!-- Scripts -->
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
@@ -21,9 +16,9 @@
     <script src="~/Scripts/angular-ui-router.min.js"></script>
     <script src="~/App/app.js"></script>
     <!-- Areas -->
-        <script src="~/App/account.ctrl.js"></script>
         <script src="~/App/Services/account.service.js"></script>
         <!-- DemoDebug -->
         <!-- Landing -->
+            <script src="~/App/Landing/landing.ctrl.js"></script>
 </body>
 </html>

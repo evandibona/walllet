@@ -1,11 +1,34 @@
-﻿<div class="container body-content" ng-controller="AccManage as main">
+﻿<div class="container body-content" ng-controller="Landing as main">
+    <div class="row text-center" id="landing-header"> <!--css: larger font, spacing beneath-->
+        <h1>foglio.</h1> 
+    </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-xs-4">
         </div>
-        <div class="col-md-4">
-            <h2>Landing Page</h2>
+        <div class="col-xs-4 well">
+            <button class="btn btn-default btn-sm" ng-click="main.isRegister = true"
+                    ng-show="!main.isRegister">
+                Register
+            </button>
+            <button class="btn btn-default btn-sm" ng-click="main.isRegister = false"
+                    ng-show="main.isRegister">
+                Login
+            </button>
+            <h2 ng-show="main.isRegister">Register</h2>
+            <h2 ng-show="!main.isRegister">Login</h2>
+            <form ng-submit="main.register()">
+                <strong>Username</strong>
+                <input type="text" class="form-control" name="user" ng-model="main.user" />
+                <strong>Password</strong>
+                <input type="text" class="form-control" name="passA" ng-model="main.passA" />
+                <strong>Password Confirm</strong>
+                <input type="text" class="form-control" name="passB" ng-model="main.passB" 
+                      ng-show="main.isRegister" />
+                <p class="spacer"></p>
+                <input type="submit" class="btn btn-success" />
+            </form>
         </div>
-        <div class="col-md-4">
+        <div class="col-xs-4">
         </div>
     </div>
 </div>

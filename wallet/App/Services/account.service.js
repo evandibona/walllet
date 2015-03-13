@@ -10,7 +10,7 @@
             register: register,
             login: login,
             logout: logout, 
-            users: listUsers, 
+            loggedIn: loggedIn, 
         }
         /////////////////
         function register(email, passA, passB) {
@@ -19,10 +19,9 @@
         }
         function logout() {
         }
-        // Should belong to a more general Authentication service. 
-        //      Auth AuthStats SiteStats
-        function listUsers() {
-            return ["Alpha", "Beta", "Signor"]
+        function loggedIn() {
+            // 
+            return false 
         }
     }
 })()
