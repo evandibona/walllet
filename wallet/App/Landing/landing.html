@@ -18,7 +18,7 @@
             </button>
             <h2 ng-show="main.isRegister">Register</h2>
             <h2 ng-show="!main.isRegister">Login</h2>
-            <form ng-submit="main.register()">
+            <form ng-submit="main.authenticate()">
                 <strong>Email</strong>
                 <input type="email" class="form-control" name="email" ng-model="main.email" />
                 <strong>Password</strong>

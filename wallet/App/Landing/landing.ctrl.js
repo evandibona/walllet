@@ -3,9 +3,9 @@
         .module("Wallet")
         .controller("Landing", landing) 
 
-    landing.$inject = ['Account', '$http', '$scope', 'AppConfig'] 
+    landing.$inject = ['Account', '$http', '$location'] 
 
-    function landing(Account, $http, $scope, appConfig) {
+    function landing(Account, $http, $location) {
         var vm = this
         vm.isRegister = false
 
@@ -13,12 +13,16 @@
             if (vm.isRegister == true) { vm.isRegister = false  }
             if (vm.isRegister == false) { vm.isRegister = true }
         }
-        vm.register = function () {
-            vm.regOut = {email: vm.email, password: vm.passA }
-            register(vm.email, vm.passA, vm.passB); 
-        }
+        vm.authenticate = function () {authenticate(vm.email, vm.passA, vm.passB)}
 
         /////////
+        function authenticate(email, A, B) {
+            if (A != undefined && B != undefined) {
+                register(email, A, B)
+            }
+            //login(email, A) 
+            $location.path("demodebug") 
+        }
         function register(email, pA, pB) {
             var password = ""
             var response = {}
@@ -27,7 +31,7 @@
             }
             $http.post("/api/Account/Register", { Email: email, Password: pA, ConfirmPassword: pB })
             .success(function (data) {
-                $location = "/demodebug"
+                $location.path("/demodebug") 
             })
             .error(function (data) {
                 vm.error = data['ModelState']

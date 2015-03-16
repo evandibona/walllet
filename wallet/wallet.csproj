@@ -211,6 +211,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Dash\dashboard.html" />
     <Content Include="App\DemoDebug\demodebug.html" />
     <Content Include="App\Landing\landing.ctrl.js" />
     <Content Include="App\Landing\landing.html" />

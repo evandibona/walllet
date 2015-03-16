@@ -7,6 +7,8 @@ body.landing {
     background-repeat: no-repeat; 
     background-position: 20% 40%; 
 }
+::selection { background: #D3F45A; }
+::-moz-selection { background: #d3f45a; }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
