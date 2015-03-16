@@ -7,8 +7,7 @@
 
     function app($location) {
         var vm = this
-        if ($location.url() == '/') {
-            vm.isLanding = true 
-        }
+        vm.url = $location.url() 
+        console.log(vm.url) 
     }
 })()

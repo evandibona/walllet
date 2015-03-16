@@ -29,7 +29,7 @@
                      ng-show="main.isRegister && (main.passA != main.passB)">
                     <strong>Passwords do not match. </strong>
                 </div>
-                <p class="spacer"></p>
+                <p>{{main.error}}</p>
                 <input type="submit" class="btn btn-success" />
             </form>
         </div>

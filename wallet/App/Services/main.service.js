@@ -5,9 +5,7 @@
 
     function appConfig() {
         return {
-            onLanding: false,
+            isLanding: false,
         }
-        /////////////////
-        isOnLanding = false 
     }
 })()

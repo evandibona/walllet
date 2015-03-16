@@ -15,5 +15,11 @@
                 url: "/",
                 templateUrl: "App/Landing/landing.html"
             })
+            /*
+            .state('dashboard', {
+                url: "/dash",
+                templateUrl: "App/dash/dashboard.html"
+            })
+            */
     }
 })()

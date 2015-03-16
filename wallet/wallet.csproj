@@ -214,9 +214,9 @@
     <Content Include="App\DemoDebug\demodebug.html" />
     <Content Include="App\Landing\landing.ctrl.js" />
     <Content Include="App\Landing\landing.html" />
-    <Content Include="App\app.ctrl.js" />
-    <Content Include="App\Services\app.service.js" />
-    <Content Include="App\Services\account.service.js" />
+    <Content Include="App\main.ctrl.js" />
+    <Content Include="App\Services\main.service.js" />
+    <Content Include="App\Services\accounts.js" />
     <Content Include="App\app.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />

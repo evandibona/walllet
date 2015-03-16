@@ -3,11 +3,12 @@
         .module("Wallet")
         .controller("Landing", landing) 
 
-    landing.$inject = ['Account', '$http'] 
+    landing.$inject = ['Account', '$http', '$scope', 'AppConfig'] 
 
-    function landing(Account, $http) {
+    function landing(Account, $http, $scope, appConfig) {
         var vm = this
         vm.isRegister = false
+
         vm.flip = function () {
             if (vm.isRegister == true) { vm.isRegister = false  }
             if (vm.isRegister == false) { vm.isRegister = true }
@@ -26,10 +27,10 @@
             }
             $http.post("/api/Account/Register", { Email: email, Password: pA, ConfirmPassword: pB })
             .success(function (data) {
-                vm.regResp = data
+                $location = "/demodebug"
             })
             .error(function (data) {
-                vm.regResp = data
+                vm.error = data['ModelState']
             })
         }
     }

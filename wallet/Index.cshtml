@@ -9,7 +9,7 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 </head>
 <body ui-view 
-      ng-class="{landing: appMain.isLanding}"  
+      ng-class="{landing: (appMain.url == '/')}"  
     > 
 
 <!-- Scripts -->
@@ -19,12 +19,12 @@
     <script src="~/Scripts/angular-ui-router.min.js"></script>
     <script src="~/App/app.js"></script>
     <!-- Areas -->
-        <script src="~/App/Services/account.service.js"></script>
-        <script src="~/App/Services/app.service.js"></script>
-        <!-- Index -->
-            <script src="~/App/app.ctrl.js"></script>
+        <script src="~/App/Services/accounts.js"></script>
+        <script src="~/App/Services/main.service.js"></script>
         <!-- DemoDebug -->
         <!-- Landing -->
             <script src="~/App/Landing/landing.ctrl.js"></script>
+        <!-- Index -->
+            <script src="~/App/main.ctrl.js"></script>
 </body>
 </html>
