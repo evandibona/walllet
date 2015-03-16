@@ -20,9 +20,10 @@
                 <strong>Username</strong>
                 <input type="text" class="form-control" name="user" ng-model="main.user" />
                 <strong>Password</strong>
-                <input type="text" class="form-control" name="passA" ng-model="main.passA" />
-                <strong>Password Confirm</strong>
-                <input type="text" class="form-control" name="passB" ng-model="main.passB" 
+                <input type="password" class="form-control" name="passA" ng-model="main.passA" />
+                <strong ng-show="main.isRegister">
+                        Password Confirm</strong>
+                <input type="password" class="form-control" name="passB" ng-model="main.passB" 
                       ng-show="main.isRegister" />
                 <p class="spacer"></p>
                 <input type="submit" class="btn btn-success" />

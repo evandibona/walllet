@@ -3,10 +3,12 @@
         .module("Wallet")
         .controller("WholeApp", app) 
 
-    app.$inject = ['AppConfig'] 
+    app.$inject = ['$location'] 
 
-    function app(AppConfig) {
+    function app($location) {
         var vm = this
-        vm.onLanding = AppConfig.onLanding
+        if ($location.url() == '/') {
+            vm.isLanding = true 
+        }
     }
 })()

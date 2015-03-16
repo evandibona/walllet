@@ -3,7 +3,9 @@
     padding-bottom: 20px;
 }
 body.landing {
-    background: indigo; 
+    background-image: url("https://unsplash.imgix.net/uploads/14129863345840df499fc/0165574c?q=75&fm=jpg&s=6e5127e797feb9b5a72f7ae4a0f3a89b"); 
+    background-repeat: no-repeat; 
+    background-position: 20% 40%; 
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -17,4 +19,17 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.well-glass {
+    zoom: 1; 
+    filter: alpha(opacity=70); 
+    opacity: 0.7; 
+}
+
+div#landing-header {
+    margin-bottom: 2em; 
+}
+div#landing-header h1 {
+    font-size: 7em; 
 }
