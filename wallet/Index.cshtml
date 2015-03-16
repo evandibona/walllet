@@ -1,13 +1,16 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="Wallet"
+      ng-controller="WholeApp as appMain">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>The {{title}} Of This Page</title>
+    <title>$state = {{$state}}</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 </head>
-<body ng-app="Wallet" ui-view>
+<body ui-view 
+      ng-class="{landing: appMain.isLanding}"  
+    > 
 
 <!-- Scripts -->
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
@@ -17,6 +20,9 @@
     <script src="~/App/app.js"></script>
     <!-- Areas -->
         <script src="~/App/Services/account.service.js"></script>
+        <script src="~/App/Services/app.service.js"></script>
+        <!-- Index -->
+            <script src="~/App/app.ctrl.js"></script>
         <!-- DemoDebug -->
         <!-- Landing -->
             <script src="~/App/Landing/landing.ctrl.js"></script>
