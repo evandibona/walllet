@@ -7,7 +7,5 @@
 
     function app($location) {
         var vm = this
-        vm.url = $location.url() 
-        console.log(vm.url) 
     }
 })()

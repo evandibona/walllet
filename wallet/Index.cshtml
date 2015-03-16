@@ -9,7 +9,7 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 </head>
 <body ui-view 
-      ng-class="{landing: (appMain.url == '/')}"  
+      ng-class="{landing: appMain.isLanding }"  
     > 
 
 <!-- Scripts -->
