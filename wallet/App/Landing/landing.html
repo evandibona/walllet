@@ -17,19 +17,29 @@
             <h2 ng-show="main.isRegister">Register</h2>
             <h2 ng-show="!main.isRegister">Login</h2>
             <form ng-submit="main.register()">
-                <strong>Username</strong>
-                <input type="text" class="form-control" name="user" ng-model="main.user" />
+                <strong>Email</strong>
+                <input type="email" class="form-control" name="email" ng-model="main.email" />
                 <strong>Password</strong>
                 <input type="password" class="form-control" name="passA" ng-model="main.passA" />
                 <strong ng-show="main.isRegister">
                         Password Confirm</strong>
                 <input type="password" class="form-control" name="passB" ng-model="main.passB" 
                       ng-show="main.isRegister" />
+                <div style="color: red"
+                     ng-show="main.isRegister && (main.passA != main.passB)">
+                    <strong>Passwords do not match. </strong>
+                </div>
                 <p class="spacer"></p>
                 <input type="submit" class="btn btn-success" />
             </form>
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-1 ">
+        </div>
+        <div class="col-xs-3 well well-glass">
+            <h2>Register</h2>
+            <p>{{main.regOut}}</p>
+            <h2>Response</h2>
+            <p>{{main.regResp}}</p>
         </div>
     </div>
 </div>
