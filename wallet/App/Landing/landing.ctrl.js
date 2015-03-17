@@ -31,7 +31,7 @@
             }
             $http.post("/api/Account/Register", { Email: email, Password: pA, ConfirmPassword: pB })
             .success(function (data) {
-                $location.path("/demodebug")
+                $location.path("/dash")
             })
             .error(function (data) {
                 vm.error = data['ModelState']
@@ -46,7 +46,7 @@
             }
             $http.post("/api/Account/Register", { Email: email, Password: pA, ConfirmPassword: pB })
             .success(function (data) {
-                $location.path("demodebug")
+                $location.path("/dash")
             })
             .error(function (data) {
                 vm.error = data['ModelState']

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>47359831-00b1-4f97-a562-4c5b23d4df13</ProjectGuid>
+    <ProjectGuid>{26F9813A-DC32-459E-B059-733B0258FE5F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>walletDatabase</RootNamespace>
