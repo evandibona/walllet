@@ -25,7 +25,7 @@ namespace wallet.Controllers
     public class UserController : ApiController
     {
         // POST api/user/Login
-        [HttpPost] 
+        [HttpPost]
         [AllowAnonymous]
         [Route("Login")]
         public async Task<HttpResponseMessage> LoginUser(LoginUserBindingModel model)
@@ -36,15 +36,11 @@ namespace wallet.Controllers
                 + request.ApplicationPath + "/Token";
             using (var client = new HttpClient())
             {
-                // Can I not use a dictionary to shorten this? 
-                // Non posso usare un oggetto dizionario fare breve questo? 
-                var requestParams = new List<KeyValuePair<string, string>>
+                var requestParams = new Dictionary<string, string>() 
                 {
-                    new KeyValuePair<string, string>("grant_type", "password"), 
-                    //                  switch all usernames to emails. 
-                    //                  Cambia tutto di usernames a indirizzi 
-                    new KeyValuePair<string, string>("username", model.Email),
-                    new KeyValuePair<string, string>("password", model.Password) 
+                    { "grant_type", "password" }, 
+                    {"username", model.Email}, 
+                    {"password", model.Password} 
                 };
 
                 var requestParamsEncoded = new FormUrlEncodedContent(requestParams);
@@ -55,8 +51,8 @@ namespace wallet.Controllers
                 {
                     Content = new StringContent(responseString, Encoding.UTF8, "application/json")
                 };
-                return responseMsg; 
+                return responseMsg;
             }
         }
-    } 
+    }
 }

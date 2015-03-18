@@ -20,6 +20,7 @@
             if (A != undefined && B != undefined) {
                 register(email, A, B)
             }
+            vm.a = "Log In Action"
             login(email, A)
         }
         // Register // 
@@ -53,7 +54,7 @@
                 $location.path("/dash")
             })
             .error(function (data) {
-                vm.error = data['ModelState']
+                vm.error = data
             })
         }
     }
