@@ -44,7 +44,7 @@
                 toDashboard() 
             }, 
             function (d) {
-                console.log(d['data'], "Failure")
+                //console.log(d['data'], "Failure")
             })
         }
         // Login // 
@@ -57,7 +57,7 @@
                 toDashboard() 
             },
             function (d) {
-                console.log(d, d[""])
+                //console.log(d, d[""])
             })
         }
         // Redirect if User is Logged in // 

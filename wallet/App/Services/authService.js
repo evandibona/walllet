@@ -34,8 +34,8 @@
                 _authentication.name = response.Name;
                 _authentication.roles = response.Roles;
 
-                console.log("setting this item to local storage\n",_authentication)
-                localStorage.setItem('authorizationData', _authentication);
+                localStorage.setItem('authorizationData',
+                    JSON.stringify(_authentication));
 
                 deferred.resolve(response);
 
@@ -61,9 +61,9 @@
         };
 
         var _fillAuthData = function () {
-
             var authData = localStorage.getItem('authorizationData');
-            console.log(">>", authData, "<<") 
+            authData = JSON.parse(authData); 
+
             if (authData) {
                 _authentication.isAuth = true;
                 _authentication.username = authData.username;
@@ -71,7 +71,6 @@
                 _authentication.token = authData.token;
                 _authentication.roles = authData.roles;
             }
-
         }
 
         authServiceFactory.register = _register;
@@ -79,8 +78,6 @@
         authServiceFactory.logout = _logOut;
         authServiceFactory.fillAuthData = _fillAuthData;
         authServiceFactory.authentication = _authentication;
-
-        console.log("cheesecake", authServiceFactory);
 
         return authServiceFactory;
     }]);
