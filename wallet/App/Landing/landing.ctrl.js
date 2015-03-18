@@ -32,6 +32,10 @@
             $http.post("/api/Account/Register", { Email: email, Password: pA, ConfirmPassword: pB })
             .success(function (data) {
                 $location.path("/dash")
+                //   Reload page on success, 
+                // so that it will sense that 
+                // you are logged in and red- 
+                // irect on its own. 
             })
             .error(function (data) {
                 vm.error = data['ModelState']
@@ -44,7 +48,7 @@
             if (pA == pB) {
                 password = pA
             }
-            $http.post("/api/Account/Register", { Email: email, Password: pA, ConfirmPassword: pB })
+            $http.post("/api/users/Login", { Email: email, Password: pA})
             .success(function (data) {
                 $location.path("/dash")
             })
