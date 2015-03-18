@@ -14,7 +14,7 @@
             if (v == true) { vm.isRegister = false }
             if (v == false) { vm.isRegister = true }
         }
-        loggedIn() // Already logged in? 
+        loggedInCheck() // Already logged in? 
         vm.authenticate = function () { authenticate(vm.email, vm.passA, vm.passB) }
 
 
@@ -43,8 +43,7 @@
             .then(function (d) {
                 toDashboard() 
             }, 
-            function (d) {
-                //console.log(d['data'], "Failure")
+            function (errors) {
             })
         }
         // Login // 
@@ -56,13 +55,15 @@
             .then(function (d) {
                 toDashboard() 
             },
-            function (d) {
-                //console.log(d, d[""])
+            function (errors) {
             })
         }
         // Redirect if User is Logged in // 
-        function loggedIn() {
+        function loggedInCheck() {
             authService.fillAuthData()
+            if (authService.authentication != undefined) {
+                toDashboard() 
+            }
         }
         // Helpers //
         function toDashboard() {
