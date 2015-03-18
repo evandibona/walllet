@@ -29,7 +29,7 @@
             $http.post('/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
 
                 _authentication.isAuth = true;
-                _authentication.username = response.Username;
+                _authentication.username = response.userName;
                 _authentication.token = response.access_token;
                 _authentication.name = response.Name;
                 _authentication.roles = response.Roles;
@@ -79,6 +79,8 @@
         authServiceFactory.logout = _logOut;
         authServiceFactory.fillAuthData = _fillAuthData;
         authServiceFactory.authentication = _authentication;
+
+        console.log("cheesecake", authServiceFactory);
 
         return authServiceFactory;
     }]);
