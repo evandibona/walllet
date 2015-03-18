@@ -21,7 +21,7 @@ using wallet.Results;
 namespace wallet.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/user")]
+    [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
         // POST api/user/Login

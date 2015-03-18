@@ -49,12 +49,15 @@
             if (pA == pB) {
                 password = pA
             }
-            $http.post("/api/users/Login", { Email: email, Password: pA})
+            $http.post("/api/user/Login", { Email: email, Password: pA})
             .success(function (data) {
                 $location.path("/dash")
             })
-            .error(function (data) {
-                vm.error = data
+            .error(function (d) {
+                vm.error = d
+                if (d["error_description"] != undefined ) {
+                    vm.error = d["error_description"]
+                }
             })
         }
     }
