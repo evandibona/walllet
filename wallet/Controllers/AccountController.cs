@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Security.Claims;
@@ -50,6 +51,39 @@ namespace wallet.Controllers
         }
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
+
+        // POST api/user/Login
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("Login")]
+        public async Task<HttpResponseMessage> LoginUser(LoginUserBindingModel model)
+        {
+            //Invoke the "token" OWIN service to perform the login: /api/token
+            var request = HttpContext.Current.Request;
+            var tokenServiceUrl = request.Url.GetLeftPart(UriPartial.Authority)
+                + request.ApplicationPath + "/Token";
+            using (var client = new HttpClient())
+            {
+                var requestParams = new Dictionary<string, string>() 
+                {
+                    { "grant_type", "password" }, 
+                    {"username", model.Email}, 
+                    {"password", model.Password} 
+                };
+
+                var requestParamsEncoded = new FormUrlEncodedContent(requestParams);
+                var tokenServiceResponse = await client.PostAsync(tokenServiceUrl, requestParamsEncoded);
+                var responseString = await tokenServiceResponse.Content.ReadAsStringAsync();
+                var responseCode = tokenServiceResponse.StatusCode;
+                var responseMsg = new HttpResponseMessage(responseCode)
+                {
+                    Content = new StringContent(responseString, Encoding.UTF8, "application/json")
+                };
+                // Save Token //
+                //------------//
+                return responseMsg;
+            }
+        }
 
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
