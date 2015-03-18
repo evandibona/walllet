@@ -79,8 +79,6 @@ namespace wallet.Controllers
                 {
                     Content = new StringContent(responseString, Encoding.UTF8, "application/json")
                 };
-                // Save Token //
-                //------------//
                 return responseMsg;
             }
         }

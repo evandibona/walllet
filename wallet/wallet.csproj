@@ -229,6 +229,8 @@
     <Content Include="App\Landing\landing.ctrl.js" />
     <Content Include="App\Landing\landing.html" />
     <Content Include="App\main.ctrl.js" />
+    <Content Include="App\Services\authIntercepter.js" />
+    <Content Include="App\Services\authService.js" />
     <Content Include="App\Services\main.service.js" />
     <Content Include="App\Services\accounts.js" />
     <Content Include="App\app.js" />
