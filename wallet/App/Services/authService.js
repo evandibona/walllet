@@ -50,7 +50,9 @@
 
         var _logOut = function () {
 
+            console.log("breakfast>> \n" + localStorage.getItem('authorizationData'))
             localStorage.removeItem('authorizationData');
+            console.log("lunch>> \n" + localStorage.getItem('authorizationData'))
 
             _authentication.isAuth = false;
             _authentication.username = "";

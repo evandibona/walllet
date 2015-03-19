@@ -61,7 +61,7 @@
         // Redirect if User is Logged in // 
         function loggedInCheck() {
             authService.fillAuthData()
-            if (authService.authentication != undefined) {
+            if (authService.length > 3) {
                 toDashboard() 
             }
         }
