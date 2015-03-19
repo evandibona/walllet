@@ -3,7 +3,14 @@
         .module("Wallet", ['ui.router'])
         .config(config) 
 
-    function config($stateProvider, $urlRouterProvider) {
+    ///// Blocks /////
+
+    config.$inject = ['$httpProvider', '$stateProvider', '$urlRouterProvider'] 
+
+    function config($stateProvider, $urlRouterProvider, $httpProvider) {
+
+        $httpProvider.interceptors.push('authInterceptorService')
+
         $urlRouterProvider.otherwise("/")
 
         $stateProvider
