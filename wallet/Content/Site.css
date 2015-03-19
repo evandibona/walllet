@@ -5,7 +5,7 @@
 body.landing {
     background-image: url("https://unsplash.imgix.net/uploads/14129863345840df499fc/0165574c?q=75&fm=jpg&s=6e5127e797feb9b5a72f7ae4a0f3a89b"); 
     background-repeat: no-repeat; 
-    background-position: 20% 40%; 
+    background-position: 60% 40%; 
 }
 ::selection { background: #D3F45A; }
 ::-moz-selection { background: #d3f45a; }
@@ -16,23 +16,19 @@ body.landing {
     padding-right: 15px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-/*
-.well-glass {
-    zoom: 1; 
-    filter: alpha(opacity=70); 
-    opacity: 0.7; 
-}
-
 div#landing-header {
     margin-bottom: 2em; 
 }
+
 div#landing-header h1 {
-    font-size: 7em; 
+    font-size: 8em; 
 }
-*/
+
+.well {
+    background: #f9f9f9; 
+    padding: 15px; 
+}
+
+.text-center {
+    text-align: center; 
+}
