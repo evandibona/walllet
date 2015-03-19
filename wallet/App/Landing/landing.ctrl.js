@@ -68,7 +68,9 @@
         function report(d) {
             attrs = [
                 "error_description", "Message",
-                "MessageDetail", "data.ModelState['model.Password'][0]", 
+                "MessageDetail", 
+                "data.ModelState[''][0]", 
+                "data.ModelState['model.Password'][0]", 
             ]
             vm.error = d
             angular.forEach(attrs, function (e) {
