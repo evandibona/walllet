@@ -22,7 +22,7 @@ select,
 textarea {
     max-width: 280px;
 }
-
+/*
 .well-glass {
     zoom: 1; 
     filter: alpha(opacity=70); 
@@ -35,3 +35,4 @@ div#landing-header {
 div#landing-header h1 {
     font-size: 7em; 
 }
+*/

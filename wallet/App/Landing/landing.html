@@ -16,9 +16,13 @@
                     ng-show="main.isRegister">
                 Login
             </button>
-            <h2 ng-show="main.isRegister">Register</h2>
-            <h2 ng-show="!main.isRegister">Login</h2>
-            <form ng-submit="main.authenticate()">
+            <form ang-submit="main.authenticate()" class="pure-form pure-form-stacked">
+                <fieldset>
+                    <legend>
+                        <span ng-show="main.isRegister">Register</span>
+                        <span ng-show="!main.isRegister">Login</span>
+                    </legend>
+                </fieldset>
                 <strong>Email</strong>
                 <input type="email" class="form-control" name="email" ng-model="main.email" />
                 <strong>Password</strong>

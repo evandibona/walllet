@@ -3,10 +3,13 @@
       ng-controller="WholeApp as appMain">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Wallet</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <!-- Yahoo! Pure -->
+    <link href="~/Content/pure-min.css" rel="stylesheet" />
+    <link href="~/Content/grids-responsive-min.css" rel="stylesheet" />
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body ui-view 
       ng-class="{landing: appMain.isLanding }"  
@@ -14,7 +17,6 @@
 
 <!-- Scripts -->
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/angular-ui-router.min.js"></script>
     <script src="~/App/app.js"></script>
