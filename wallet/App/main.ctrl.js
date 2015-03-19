@@ -11,5 +11,8 @@
             authService.logout() 
             $location.path("/") 
         }
+        // Current User
+        authService.refresh() 
+        vm.currentUser = authService.info.username
     }
 })()

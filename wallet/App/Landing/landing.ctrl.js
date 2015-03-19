@@ -20,30 +20,25 @@
 
         /////////
         function authenticate(email, A, B) {
-            var t = ""
-            if (vm.a == "Authenticate") {
-                t = "--> Authenticate <--"
-            }
-            if (vm.a != "Authenticate") {
-                t = "Authenticate"
-            }
-            vm.a = t
             if (A != undefined && B != undefined) {
                 register(email, A, B)
             }
-            login(email, A)
+            if (A != undefined && B == undefined) {
+                login(email, A)
+            }
         }
         // Register // 
         function register(email, a, b) {
             authService.register({
                 Email: email,
                 Password: a,
-                ConfirmPassword: b, 
+                ConfirmPassword: b,
             })
             .then(function (d) {
-                toDashboard() 
-            }, 
+                toDashboard()
+            },
             function (errors) {
+                report(errors)
             })
         }
         // Login // 
@@ -53,16 +48,17 @@
                 Password: pass
             })
             .then(function (d) {
-                toDashboard() 
+                toDashboard()
             },
             function (errors) {
+                report(errors)
             })
         }
         // Redirect if User is Logged in // 
         function loggedInCheck() {
-            authService.fillAuthData()
-            if (authService.length > 3) {
-                toDashboard() 
+            authService.refresh()
+            if (authService.info.isAuth) {
+                toDashboard()
             }
         }
         // Helpers //
@@ -72,12 +68,13 @@
         function report(d) {
             attrs = [
                 "error_description", "Message",
-                "MessageDetail", "ModelState"
+                "MessageDetail", "data.ModelState['model.Password'][0]", 
             ]
             vm.error = d
             angular.forEach(attrs, function (e) {
-                if (d[e] != undefined) {
-                    vm.error = d[e]
+                var v = eval('d.' + e)
+                if (v != undefined) {
+                    vm.error = v
                 }
             })
         }

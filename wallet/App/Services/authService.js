@@ -50,9 +50,7 @@
 
         var _logOut = function () {
 
-            console.log("breakfast>> \n" + localStorage.getItem('authorizationData'))
             localStorage.removeItem('authorizationData');
-            console.log("lunch>> \n" + localStorage.getItem('authorizationData'))
 
             _authentication.isAuth = false;
             _authentication.username = "";
@@ -78,8 +76,8 @@
         authServiceFactory.register = _register;
         authServiceFactory.login = _login;
         authServiceFactory.logout = _logOut;
-        authServiceFactory.fillAuthData = _fillAuthData;
-        authServiceFactory.authentication = _authentication;
+        authServiceFactory.refresh = _fillAuthData;
+        authServiceFactory.info = _authentication;
 
         return authServiceFactory;
     }]);
