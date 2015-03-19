@@ -1,6 +1,20 @@
-﻿<nav class="navbar navbar-default">
-    <ul class="nav navbar-nav">
-        <li><a ng-click="appMain.logout()"> Logout</a></li>
-        <li><a>{{appMain.currentUser}}</a></li>
-    </ul>
-</nav>
+﻿<div id="menu" class="pure-g">
+    <div class="pure-u-sm-1-2">
+        <div class="pure-menu pure-menu-horizontal">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item clickable"> <a class="pure-menu-link" href="#">Accounts </a> </li>
+                <li class="pure-menu-item clickable"> <a class="pure-menu-link" href="#">Profiles</a> </li>
+                <li class="pure-menu-item clickable"> <a class="pure-menu-link" href="#">All Statements</a> </li>
+            </ul>
+        </div>
+    </div>
+    <div class="pure-u-sm-1-2">
+        <div class="pure-menu pure-menu-horizontal">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item clickable" ng-click="appMain.logout()">
+                    Logout
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
