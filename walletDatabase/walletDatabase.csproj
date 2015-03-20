@@ -62,6 +62,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Sql\Models\ModelsSchema.sql" />
     <Content Include="Sql\Security\Procedures\AddUserToRole.sql" />
     <Content Include="Sql\Security\Procedures\FindUserByEmail.sql" />
     <Content Include="Sql\Security\Procedures\FindUserByLogin.sql" />
@@ -79,11 +80,10 @@
     <Content Include="Sql\Security\Tables\UserLogins.sql" />
     <Content Include="Sql\Security\Tables\UserRoles.sql" />
     <Content Include="Sql\Security\Tables\Users.sql" />
-    <Content Include="Sql\Tables\HistoricalActions.sql" />
+    <Content Include="Sql\Models\Tables\HistoricalActions.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Sql\MiscProcs\" />
-    <Folder Include="Sql\Tables\History\" />
+    <Folder Include="Sql\Models\Procedures\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,7 +7,7 @@
 
     config.$inject = ['$httpProvider', '$stateProvider', '$urlRouterProvider'] 
 
-    function config($stateProvider, $urlRouterProvider, $httpProvider) {
+    function config($httpProvider, $stateProvider, $urlRouterProvider) {
 
         $httpProvider.interceptors.push('authInterceptorService')
 

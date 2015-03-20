@@ -27,5 +27,5 @@ CREATE UNIQUE NONCLUSTERED INDEX IX_Users_Username
     ON [Security].[Users] ( Username ) 
 GO
 
-AUTOPROC Insert,Select,Update,Delete [Security].[Users]
+AUTOPROC ALL [Security].[Users]
 GO

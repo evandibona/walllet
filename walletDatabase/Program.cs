@@ -20,7 +20,7 @@ namespace walletDatabase
             var connectionString = "Server=.\\SQLSERVER; Database=folio; Integrated Security=True";
             var dbName = "wallet";
             // load your SQL into a SchemaObjectCOllection
-            SchemaObjectCollection schema = new SchemaObjectCollection().LoadFromDir(@"..\..\Sql\Security\");
+            SchemaObjectCollection schema = new SchemaObjectCollection().LoadFromDir(@"..\..\Sql\");
             //var sFile = Path.Combine(Environment.CurrentDirectory, @"..\..\Sql\Security\"); 
 
             // automatically create the database
