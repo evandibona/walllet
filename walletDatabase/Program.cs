@@ -9,6 +9,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using Insight.Database;
 using Insight.Database.Schema;
+using System.Threading; 
 
 namespace walletDatabase
 {
@@ -34,6 +35,8 @@ namespace walletDatabase
                 new SchemaEventConsoleLogger().Attach(installer);
                 installer.Install(dbName, schema);
             }
+
+            Thread.Sleep(5 * 1000); 
         }
     }
 }
