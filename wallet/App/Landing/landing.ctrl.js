@@ -67,10 +67,11 @@
         }
         function report(d) {
             attrs = [
+                // v This needs to be fixed. 
                 "error_description", "Message",
                 "MessageDetail", 
-                "data.ModelState[''][0]", 
-                "data.ModelState['model.Password'][0]", 
+                "data.ModelState['']", 
+                "data.ModelState['model.Password']", 
             ]
             vm.error = d
             angular.forEach(attrs, function (e) {
