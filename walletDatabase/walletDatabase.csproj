@@ -62,6 +62,23 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Sql\Security\Procedures\AddUserToRole.sql" />
+    <Content Include="Sql\Security\Procedures\FindUserByEmail.sql" />
+    <Content Include="Sql\Security\Procedures\FindUserByLogin.sql" />
+    <Content Include="Sql\Security\Procedures\FindUserByUserName.sql" />
+    <Content Include="Sql\Security\Procedures\GetLoginsForUser.sql" />
+    <Content Include="Sql\Security\Procedures\GetRolesForUser.sql" />
+    <Content Include="Sql\Security\Procedures\GetUserClaims.sql" />
+    <Content Include="Sql\Security\Procedures\GetUserLoginsByUserId.sql" />
+    <Content Include="Sql\Security\Procedures\IsUserInRole.sql" />
+    <Content Include="Sql\Security\Procedures\RemoveUserClaim.sql" />
+    <Content Include="Sql\Security\Procedures\RemoveUserFromRole.sql" />
+    <Content Include="Sql\Security\SecuritySchema.sql" />
+    <Content Include="Sql\Security\Tables\Roles.sql" />
+    <Content Include="Sql\Security\Tables\UserClaims.sql" />
+    <Content Include="Sql\Security\Tables\UserLogins.sql" />
+    <Content Include="Sql\Security\Tables\UserRoles.sql" />
+    <Content Include="Sql\Security\Tables\Users.sql" />
     <Content Include="Sql\Tables\HistoricalActions.sql" />
   </ItemGroup>
   <ItemGroup>

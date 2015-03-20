@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Configuration; 
@@ -19,8 +20,8 @@ namespace walletDatabase
             var connectionString = "Server=.\\SQLSERVER; Database=folio; Integrated Security=True"; 
             var dbName = "wallet"; 
             // load your SQL into a SchemaObjectCOllection
-            SchemaObjectCollection schema = new SchemaObjectCollection();
-            schema.Load(Assembly.GetExecutingAssembly());
+            SchemaObjectCollection schema = new SchemaObjectCollection().LoadFromDir(@"..\..\Sql\Security\"); 
+            //var sFile = Path.Combine(Environment.CurrentDirectory, @"..\..\Sql\Security\"); 
 
             // automatically create the database
             SchemaInstaller.CreateDatabase(connectionString);
@@ -33,6 +34,17 @@ namespace walletDatabase
                 new SchemaEventConsoleLogger().Attach(installer);
                 installer.Install(dbName, schema);
             }
+        }
+    }
+}
+namespace Insight.Database.Schema
+{
+    static class SchemaExtension 
+    {
+        public static SchemaObjectCollection LoadFromDir(this SchemaObjectCollection self, string projectPath)
+        {
+            var path = Path.Combine(Environment.CurrentDirectory, projectPath); 
+            return self; 
         }
     }
 }
