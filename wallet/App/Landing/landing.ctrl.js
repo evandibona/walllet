@@ -20,13 +20,6 @@
 
         /////////
         function authenticate() {
-            vm.logreg = {
-                'email': "candy@gmail.com",
-                'name': "Purple Cane",
-                'user': "purplecandy",
-                'pass': "123!@#qweQWE",
-                'cpass': "123!@#qweQWE",
-            }
             var length = Object.keys(vm.logreg).length 
             if (length == 5) {
                 register(vm.logreg)
@@ -52,10 +45,10 @@
             })
         }
         // Login // 
-        function login(email, pass) {
+        function login(d) {
             authService.login({
-                Username: email,
-                Password: pass
+                Username: d['user'],
+                Password: d['pass']  
             })
             .then(function (d) {
                 toDashboard()
