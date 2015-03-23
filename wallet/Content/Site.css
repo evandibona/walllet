@@ -20,6 +20,8 @@ div#landing-header {
 
 div#landing-header h1 {
     font-size: 8em; 
+    margin: 0; 
+    margin-top: 0.5em; 
 }
 
 .well {
@@ -37,3 +39,7 @@ div#landing-header h1 {
 
 .tall-1 { height: 5em; }
 .tall-2 { height: 10em; }
+
+#login-form {
+    margin-top: 1.0em; 
+}
