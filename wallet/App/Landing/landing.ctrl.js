@@ -15,24 +15,34 @@
             if (v == false) { vm.isRegister = true }
         }
         loggedInCheck() // Already logged in? 
-        vm.authenticate = function () { authenticate(vm.email, vm.passA, vm.passB) }
+        vm.authenticate = authenticate
 
 
         /////////
-        function authenticate(email, A, B) {
-            if (A != undefined && B != undefined) {
-                register(email, A, B)
+        function authenticate() {
+            vm.logreg = {
+                'email': "candy@gmail.com",
+                'name': "Purple Cane",
+                'user': "purplecandy",
+                'pass': "123!@#qweQWE",
+                'cpass': "123!@#qweQWE",
             }
-            if (A != undefined && B == undefined) {
-                login(email, A)
+            var length = Object.keys(vm.logreg).length 
+            if (length == 5) {
+                register(vm.logreg)
+            }
+            if (length == 2) {
+                login(vm.logreg)
             }
         }
         // Register // 
-        function register(email, a, b) {
+        function register(d) {
             authService.register({
-                Email: email,
-                Password: a,
-                ConfirmPassword: b,
+                Name: d['name'],
+                Username: d['user'],
+                Email: d['email'],
+                Password: d['pass'],
+                ConfirmPassword: d['cpass'],
             })
             .then(function (d) {
                 toDashboard()
