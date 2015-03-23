@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace wallet.Results
+namespace Wallet.Results
 {
     public class ChallengeResult : IHttpActionResult
     {

@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace wallet.Areas.HelpPage
+namespace Wallet.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace wallet.Areas.HelpPage.ModelDescriptions
+namespace Wallet.Areas.HelpPage.ModelDescriptions
 {
     internal static class ModelNameHelper
     {

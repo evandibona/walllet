@@ -9,9 +9,12 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using wallet.Models;
+using Wallet.Models;
+using Wallet.Models.Database;
+using System.Net.Mail;
+using Newtonsoft.Json;
 
-namespace wallet.Providers
+namespace Wallet.Providers
 {
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {
@@ -31,7 +34,31 @@ namespace wallet.Providers
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
-            ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
+            bool isEmail;
+
+            try
+            {
+                MailAddress m = new MailAddress(context.UserName);
+                isEmail = true;
+            }
+            catch (FormatException)
+            {
+                isEmail = false;
+            }
+
+            ApplicationUser user;
+            var username = context.UserName;
+
+            if (isEmail)
+            {
+                var userLookup = await userManager.FindByEmailAsync(context.UserName);
+                if (userLookup != null)
+                {
+                    username = userLookup.UserName;
+                }
+            }
+
+            user = await userManager.FindAsync(username, context.Password); 
 
             if (user == null)
             {
@@ -44,7 +71,7 @@ namespace wallet.Providers
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
                 CookieAuthenticationDefaults.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(user.UserName);
+            AuthenticationProperties properties = CreateProperties(user, userManager);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -86,11 +113,14 @@ namespace wallet.Providers
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string userName)
+        public static AuthenticationProperties CreateProperties(ApplicationUser user, ApplicationUserManager manager)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "userName", userName }
+                { "Username", user.UserName }, 
+                { "Name", user.Name ?? "" }, 
+                { "Roles", JsonConvert.SerializeObject( manager.GetRoles(user.Id) )} 
+
             };
             return new AuthenticationProperties(data);
         }

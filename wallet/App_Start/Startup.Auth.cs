@@ -8,10 +8,12 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using wallet.Providers;
-using wallet.Models;
+using Wallet.Providers;
+using Wallet.Models;
+using System.Data.SqlClient;
+using System.Configuration; 
 
-namespace wallet
+namespace Wallet
 {
     public partial class Startup
     {
@@ -23,7 +25,8 @@ namespace wallet
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context and user manager to use a single instance per request
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
+            var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            app.CreatePerOwinContext(() => new SqlConnection(connectionString)); 
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
 
             // Enable the application to use a cookie to store information for the signed in user

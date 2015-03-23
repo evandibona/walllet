@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace wallet.Models
+namespace Wallet.Models
 {
     // Models returned by AccountController actions.
 

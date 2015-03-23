@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace wallet.Areas.HelpPage
+namespace Wallet.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

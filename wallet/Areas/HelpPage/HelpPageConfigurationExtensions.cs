@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using wallet.Areas.HelpPage.ModelDescriptions;
-using wallet.Areas.HelpPage.Models;
+using Wallet.Areas.HelpPage.ModelDescriptions;
+using Wallet.Areas.HelpPage.Models;
 
-namespace wallet.Areas.HelpPage
+namespace Wallet.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

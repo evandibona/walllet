@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Security.Claims;
@@ -14,11 +13,12 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using wallet.Models;
-using wallet.Providers;
-using wallet.Results;
+using Wallet.Models;
+using Wallet.Models.Database;
+using Wallet.Providers;
+using Wallet.Results;
 
-namespace wallet.Controllers
+namespace Wallet.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
@@ -52,37 +52,6 @@ namespace wallet.Controllers
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
 
-        // POST api/user/Login
-        [HttpPost]
-        [AllowAnonymous]
-        [Route("Login")]
-        public async Task<HttpResponseMessage> LoginUser(LoginUserBindingModel model)
-        {
-            //Invoke the "token" OWIN service to perform the login: /api/token
-            var request = HttpContext.Current.Request;
-            var tokenServiceUrl = request.Url.GetLeftPart(UriPartial.Authority)
-                + request.ApplicationPath + "/Token";
-            using (var client = new HttpClient())
-            {
-                var requestParams = new Dictionary<string, string>() 
-                {
-                    { "grant_type", "password" }, 
-                    {"username", model.Email}, 
-                    {"password", model.Password} 
-                };
-
-                var requestParamsEncoded = new FormUrlEncodedContent(requestParams);
-                var tokenServiceResponse = await client.PostAsync(tokenServiceUrl, requestParamsEncoded);
-                var responseString = await tokenServiceResponse.Content.ReadAsStringAsync();
-                var responseCode = tokenServiceResponse.StatusCode;
-                var responseMsg = new HttpResponseMessage(responseCode)
-                {
-                    Content = new StringContent(responseString, Encoding.UTF8, "application/json")
-                };
-                return responseMsg;
-            }
-        }
-
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [Route("UserInfo")]
@@ -110,15 +79,16 @@ namespace wallet.Controllers
         [Route("ManageInfo")]
         public async Task<ManageInfoViewModel> GetManageInfo(string returnUrl, bool generateState = false)
         {
-            IdentityUser user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId<int>()); 
 
             if (user == null)
             {
                 return null;
             }
 
-            List<UserLoginInfoViewModel> logins = new List<UserLoginInfoViewModel>();
+            //List<UserLoginInfoViewModel> logins = new List<UserLoginInfoViewModel>();
 
+            /*
             foreach (IdentityUserLogin linkedAccount in user.Logins)
             {
                 logins.Add(new UserLoginInfoViewModel
@@ -136,12 +106,13 @@ namespace wallet.Controllers
                     ProviderKey = user.UserName,
                 });
             }
+            */
 
             return new ManageInfoViewModel
             {
                 LocalLoginProvider = LocalLoginProvider,
                 Email = user.UserName,
-                Logins = logins,
+                //Logins = logins,
                 ExternalLoginProviders = GetExternalLogins(returnUrl, generateState)
             };
         }
@@ -155,7 +126,7 @@ namespace wallet.Controllers
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
+            IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId<int>(), model.OldPassword,
                 model.NewPassword);
             
             if (!result.Succeeded)
@@ -175,7 +146,7 @@ namespace wallet.Controllers
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
+            IdentityResult result = await UserManager.AddPasswordAsync(User.Identity.GetUserId<int>(), model.NewPassword);
 
             if (!result.Succeeded)
             {
@@ -212,7 +183,7 @@ namespace wallet.Controllers
                 return BadRequest("The external login is already associated with an account.");
             }
 
-            IdentityResult result = await UserManager.AddLoginAsync(User.Identity.GetUserId(),
+            IdentityResult result = await UserManager.AddLoginAsync(User.Identity.GetUserId<int>(),
                 new UserLoginInfo(externalData.LoginProvider, externalData.ProviderKey));
 
             if (!result.Succeeded)
@@ -236,11 +207,11 @@ namespace wallet.Controllers
 
             if (model.LoginProvider == LocalLoginProvider)
             {
-                result = await UserManager.RemovePasswordAsync(User.Identity.GetUserId());
+                result = await UserManager.RemovePasswordAsync(User.Identity.GetUserId<int>());
             }
             else
             {
-                result = await UserManager.RemoveLoginAsync(User.Identity.GetUserId(),
+                result = await UserManager.RemoveLoginAsync(User.Identity.GetUserId<int>(),
                     new UserLoginInfo(model.LoginProvider, model.ProviderKey));
             }
 
@@ -296,7 +267,7 @@ namespace wallet.Controllers
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
-                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user, UserManager );
                 Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else
@@ -360,7 +331,7 @@ namespace wallet.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.Username, Email = model.Email, Name = model.Name };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

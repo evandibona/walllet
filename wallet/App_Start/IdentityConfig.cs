@@ -3,24 +3,30 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using wallet.Models;
+using Wallet.Models;
+using Wallet.Models.Database;
+using Wallet.Models.Stores; 
+using System.Data.SqlClient;
+using Insight.Database;
 
-namespace wallet
+namespace Wallet
 {
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
 
-    public class ApplicationUserManager : UserManager<ApplicationUser>
+    public class ApplicationUserManager : UserManager<ApplicationUser, int>
     {
-        public ApplicationUserManager(IUserStore<ApplicationUser> store)
+        public ApplicationUserManager(IUserStore<ApplicationUser, int> store)
             : base(store)
         {
         }
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
+            var connection = context.Get<SqlConnection>().As<IUserDataAccess>();
+            IUserDataAccess userDataAccess = connection;
+            var manager = new ApplicationUserManager(new InsightUserStore(userDataAccess)); 
             // Configure validation logic for usernames
-            manager.UserValidator = new UserValidator<ApplicationUser>(manager)
+            manager.UserValidator = new UserValidator<ApplicationUser,int>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
@@ -37,7 +43,7 @@ namespace wallet
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
-                manager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+                manager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser, int>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
         }

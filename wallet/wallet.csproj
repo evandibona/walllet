@@ -214,10 +214,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserBindingModels.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Interfaces\IUserDataAccess.cs" />
+    <Compile Include="Models\Stores\InsightUserStore.cs" />
+    <Compile Include="Models\Database\UserLogin.cs" />
+    <Compile Include="Models\Database\UserClaim.cs" />
+    <Compile Include="Models\Database\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />

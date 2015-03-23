@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using wallet.Areas.HelpPage.ModelDescriptions;
-using wallet.Areas.HelpPage.Models;
+using Wallet.Areas.HelpPage.ModelDescriptions;
+using Wallet.Areas.HelpPage.Models;
 
-namespace wallet.Areas.HelpPage.Controllers
+namespace Wallet.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

@@ -4,9 +4,9 @@ using System.Linq;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(wallet.Startup))]
+[assembly: OwinStartup(typeof(Wallet.Startup))]
 
-namespace wallet
+namespace Wallet
 {
     public partial class Startup
     {

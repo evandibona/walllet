@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace wallet
+namespace Wallet
 {
     public class FilterConfig
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace wallet.Areas.HelpPage.ModelDescriptions
+namespace Wallet.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

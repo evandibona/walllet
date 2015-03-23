@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace wallet.Areas.HelpPage.ModelDescriptions
+namespace Wallet.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterDescription
     {
