@@ -233,6 +233,7 @@
     <Content Include="App\Landing\landing.html" />
     <Content Include="App\main.ctrl.js" />
     <Content Include="App\Navbar\navbar.html" />
+    <Content Include="App\Services\data.js" />
     <Content Include="App\Services\authIntercepter.js" />
     <Content Include="App\Services\authService.js" />
     <Content Include="App\Services\main.service.js" />

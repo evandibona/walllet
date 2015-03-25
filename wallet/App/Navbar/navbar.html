@@ -2,17 +2,25 @@
     <div class="pure-u-sm-1-2">
         <div class="pure-menu pure-menu-horizontal">
             <ul class="pure-menu-list">
-                <li class="pure-menu-item clickable"> <a class="pure-menu-link" href="#">Accounts </a> </li>
-                <li class="pure-menu-item clickable"> <a class="pure-menu-link" href="#">Profiles</a> </li>
-                <li class="pure-menu-item clickable"> <a class="pure-menu-link" href="#">All Statements</a> </li>
+                <li class="pure-menu-item"> <a class="pure-menu-link bg-blue" href="#" ng-click="appMain.logout()">
+                    Logout</a> </li>
+                <li class="pure-menu-item"> <a class="pure-menu-link" href="#">Account</a> </li>
+                <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover"> 
+                    <a class="pure-menu-link" href="#">Manage Household</a> 
+                    <ul class="pure-menu-children">
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Budget Categories</a></li>
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Streams</a></li>
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Users</a></li>
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Bank Accounts</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
     <div class="pure-u-sm-1-2">
         <div class="pure-menu pure-menu-horizontal">
             <ul class="pure-menu-list">
-                <li class="pure-menu-item clickable" ng-click="appMain.logout()">
-                    Logout
+                <li class="pure-menu-item">
                 </li>
             </ul>
         </div>

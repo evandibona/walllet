@@ -43,3 +43,50 @@ div#landing-header h1 {
 #login-form {
     margin-top: 1.0em; 
 }
+
+.bg-blue {
+        background: #27ae60; 
+        color: white; 
+}
+.bg-blue:hover {
+        background: #D3F45A; 
+        color: black; 
+}
+
+/* Dashboard */
+
+
+.tile {
+    border: 1px solid #bbb; 
+    margin: 5px 0; 
+}
+
+.widget {
+    max-width: 100%; 
+
+    margin: 1em 0; 
+    padding: 5px; 
+
+    border: 1px solid #bbb; 
+    border-top: 5px solid #e67e22 ; 
+    overflow: hidden; 
+
+    text-align: center; 
+    display: inline-block; 
+}
+
+.widget span {
+    display: block; 
+}
+
+.widget-value {
+    font-weight: 500; 
+    font-size: 3.0em; 
+}
+
+.widget-d {
+    font-weight: 600; 
+    color: #bbb; 
+}
+
+
