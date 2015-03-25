@@ -60,17 +60,21 @@ div#landing-header h1 {
     margin-top: 1.0em; 
 }
 
-.bg-blue {
-        background: #27ae60; 
-        color: white; 
-}
-.bg-blue:hover {
-        background: #D3F45A; 
-        color: black; 
-}
-
 .pure-menu {
-    background: white; 
+    background: #2c3e50; 
+}
+.pure-menu-link {
+    color: white; 
+}
+.pure-menu-link:hover {
+    color: white; 
+    background: #e74c3c; 
+}
+.pure-menu-item.important {
+    background: #8e44ad; 
+}
+.pure-menu-item.important :hover {
+    background: #9b59b6; 
 }
 
 /* Dashboard */
