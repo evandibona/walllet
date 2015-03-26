@@ -35,21 +35,14 @@
 .pure-menu-item.important :hover {
   background: #9b59b6; }
 
-.spacer-dotted {
-  width: 2em;
-  height: 0.1em;
-  border-top: 1px dashed #777;
-  display: inline-block; }
-
 .tile {
   margin: 10px 5px;
   text-align: center;
   overflow: hidden; }
-
-.tile h3 {
-  margin: 0.3em;
-  display: inline-block;
-  letter-spacing: 1px; }
+  .tile h3 {
+    margin: 0.3em;
+    display: inline-block;
+    letter-spacing: 1px; }
 
 .tile-green-sea {
   background: #16a085;
@@ -83,20 +76,17 @@
   border-bottom: 1px solid #ccc;
   padding: 0.5em; }
 
-.transaction p {
+.transactions p {
   margin: 0;
   margin-top: 0.2em; }
-
-.transaction span {
+.transactions span {
   font-size: 2.8em;
   line-height: 1.1em; }
 
 .transaction-head {
   display: table;
-  width: 100%; }
-
-.transaction-head :nth-child(2) {
-  text-align: right; }
+  width: 100%;
+  nth-child(2)-text-align: right; }
 
 .transaction-date {
   display: table-cell;
@@ -110,9 +100,8 @@
   border: 1px solid #bbb;
   text-align: center;
   background: white; }
-
-.widget span {
-  display: block; }
+  .widget span {
+    display: block; }
 
 .widget-value {
   font-weight: 500;
@@ -140,18 +129,14 @@
 
 .pools {
   text-align: center; }
+  .pools #canvas {
+    height: 15em;
+    background: white; }
 
-.pools #canvas {
-  height: 15em;
-  background: white; }
-
-/**/
-/**/
 #bank-accounts {
   text-align: center; }
-
-#bank-accounts .account-label * {
-  display: inline; }
+  #bank-accounts .account-label * {
+    display: inline; }
 
 body.landing {
   background-image: url("https://unsplash.imgix.net/uploads/14129863345840df499fc/0165574c?q=75&fm=jpg&s=6e5127e797feb9b5a72f7ae4a0f3a89b");
@@ -197,6 +182,7 @@ div#landing-header h1 {
 .haloyellow {
   border: 7px solid #f1c40f; }
 
+/*  Universal Sitewide Styling  */
 @font-face {
   font-family: 'Fira Sans';
   font-weight: 400;

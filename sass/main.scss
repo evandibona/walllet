@@ -1,9 +1,10 @@
 @import "_myStyle.scss";
 @import "_menu.scss";
 
-@import "pages/dashboard.scss";
+@import "pages/dashboard.sass";
 @import "pages/landing.scss";
 
+  /*  Universal Sitewide Styling  */
 @font-face {
   font-family: 'Fira Sans';
   font-weight: 400;
