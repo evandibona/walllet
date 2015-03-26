@@ -9,9 +9,14 @@
     src: url('fonts/fira-sans/FiraSans-Medium.otf')
 }
 
+@media only screen and (max-width: 400px) {
+    body { font-size: 85%; }
+}
+
 
 body {
     background: #bdc3c7; 
+    color: #444; 
 }
 body * {
     font-family: 'Fira Sans'; 
@@ -56,9 +61,40 @@ div#landing-header h1 {
 .tall-1 { height: 5em; }
 .tall-2 { height: 10em; }
 
+.login-modal {
+    border-radius: 5px; 
+} 
+
+.login-modal button {
+    width: 25%; 
+}
+
+.login-modal button.login {
+    display: table-cell; 
+}
+
+.login-modal button.register {
+    display: table-cell; 
+    float: right; 
+}
+
 #login-form {
     margin-top: 1.0em; 
 }
+
+#login-form input {
+    width: 100%; 
+}
+
+.halogreen {
+    border: 7px solid #27ae60; 
+}
+
+.haloyellow {
+    border: 7px solid #f1c40f; 
+}
+
+
 
 .pure-menu {
     background: #2c3e50; 
@@ -87,7 +123,7 @@ div#landing-header h1 {
 }
 
 .tile {
-    margin: 1em 5px; 
+    margin: 10px 5px; 
     text-align: center; 
 }
 
@@ -145,7 +181,8 @@ div#landing-header h1 {
 }
 
 .transaction span {
-    font-size: 3em; 
+    font-size: 2.8em; 
+    line-height: 1.1em; 
 }
 
 .transaction-head {
@@ -173,18 +210,6 @@ div#landing-header h1 {
     background: white; 
 }
 
-.widget-orange {
-    border-top: 5px solid #e67e22 ; 
-}
-
-.widget-purple {
-    border-top: 5px solid #8e44ad; 
-}
-
-.widget-red {
-    border-top: 5px solid #e74c3c; 
-}
-
 .widget span {
     display: block; 
 }
@@ -192,13 +217,30 @@ div#landing-header h1 {
 .widget-value {
     font-weight: 500; 
     font-size: 3.5em; 
+    padding-top: 0.2em; 
+    line-height: 1.1em; 
+    color: #444; 
 }
 
 .widget-d {
     font-weight: 600; 
-    color: #999; 
     text-transform: uppercase; 
-    font-size: 0.8em; 
+    font-size: 0.9em; 
+}
+
+.widget-orange {
+    border-top: 5px solid #e67e22 ; 
+    color: #e67e22 ; 
+}
+
+.widget-purple {
+    border-top: 7px solid #8e44ad; 
+    color: #8e44ad; 
+}
+
+.widget-red {
+    border-top: 7px solid #e74c3c; 
+    color: #e74c3c; 
 }
 
 
@@ -225,7 +267,7 @@ div#landing-header h1 {
 
 /*Buttons*/
 .pure-button {
-    font-family: 'Sinkin Sans'; 
+    font-family: 'Fira Sans'; 
     font-weight: 400; 
     font-size: 0.9em; 
 }

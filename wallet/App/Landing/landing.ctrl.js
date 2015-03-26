@@ -38,6 +38,7 @@
                 ConfirmPassword: d['cpass'],
             })
             .then(function (d) {
+                vm.success = true; 
                 toDashboard()
             },
             function (errors) {
@@ -51,6 +52,7 @@
                 Password: d['pass']  
             })
             .then(function (d) {
+                vm.success = true; 
                 toDashboard()
             },
             function (errors) {

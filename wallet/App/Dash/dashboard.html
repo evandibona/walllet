@@ -15,8 +15,8 @@
                             <h4 class="transaction-date"> {{tx.date}} </h4>
                             <h4 class="transaction-date"> {{tx.user}} </h4>
                         </div>
-                        <p><i>{{tx.desc}}</i></p>
                         <span>{{tx.amnt}}</span>
+                        <p><i>{{tx.desc}}</i></p>
                     </li>
                 </ul>
             </div>
@@ -25,26 +25,19 @@
             <div id="bank-accounts" class="tile tile-sun-flower">
                 <h3>Bank Accounts</h3>
                 <ul class="stacked-list">
-                    <li class="account-label">
-                        <h4> Savings </h4>
-                        <span> $748,432 </span>
-                    </li>
-                    <li class="account-label">
-                        <h4> Swiss ****348 </h4>
-                        <span> $4,193,854 </span>
-                    </li>
-                    <li class="account-label">
-                        <h4> Checking </h4>
-                        <span> $8,132 </span>
+                    <li class="account-label"
+                        ng-repeat="(name, balance) in main.bankAccounts">
+                        <h4> {{name}} </h4>
+                        <span> {{balance}} </span>
                     </li>
                 </ul>
             </div>
             <div id="real-balance" class="tile widget widget-red">
-                <span class="widget-value">$2,139</span>
+                <span class="widget-value"> {{main.hhBalanceReal}} </span>
                 <span class="widget-d">calculated balance</span>
             </div>
             <div class="tile widget widget-purple">
-                <span class="widget-value">$2,139</span>
+                <span class="widget-value">{{main.hhBalanceEst}} </span>
                 <span class="widget-d">Est. balance</span>
             </div>
         </div>
