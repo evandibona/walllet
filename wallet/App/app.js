@@ -14,10 +14,6 @@
         $urlRouterProvider.otherwise("/")
 
         $stateProvider
-            .state('demodebug', {
-                url: "/demodebug",
-                templateUrl: "App/DemoDebug/demodebug.html"
-            })
             .state('landing', {
                 url: "/",
                 templateUrl: "App/Landing/landing.html"
@@ -25,6 +21,10 @@
             .state('dashboard', {
                 url: "/dash",
                 templateUrl: "App/Dash/dashboard.html"
+            })
+            .state('history', {
+                url: "/history",
+                templateUrl: "App/History/history.html"
             })
     }
 })()
