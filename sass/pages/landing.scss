@@ -1,0 +1,51 @@
+body.landing {
+  background-image: url("https://unsplash.imgix.net/uploads/14129863345840df499fc/0165574c?q=75&fm=jpg&s=6e5127e797feb9b5a72f7ae4a0f3a89b");
+  background-repeat: no-repeat;
+  background-position: 60% 40%;
+}
+::selection { background: #D3F45A; }
+::-moz-selection { background: #d3f45a; }
+
+div#landing-header {
+  margin-bottom: 2em;
+}
+
+div#landing-header h1 {
+  font-size: 8em;
+  margin: 0;
+  margin-top: 0.5em;
+}
+
+
+.login-modal {
+  border-radius: 5px;
+}
+
+.login-modal button {
+  width: 25%;
+}
+
+.login-modal button.login {
+  display: table-cell;
+}
+
+.login-modal button.register {
+  display: table-cell;
+  float: right;
+}
+
+#login-form {
+  margin-top: 1.0em;
+}
+
+#login-form input {
+  width: 100%;
+}
+
+.halogreen {
+  border: 7px solid #27ae60;
+}
+
+.haloyellow {
+  border: 7px solid #f1c40f;
+}

@@ -244,6 +244,7 @@
     <Content Include="Content\fonts\fira-sans\SIL Open Font License.txt" />
     <Content Include="Content\grids-responsive-min.css" />
     <Content Include="Content\pure-min.css" />
+    <Content Include="Content\Shadow.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\angular-animate.js" />
