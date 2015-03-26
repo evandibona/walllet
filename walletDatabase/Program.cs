@@ -19,16 +19,17 @@ namespace walletDatabase
         {
             // myConnection
             var connectionString = "Server=.\\SQLSERVER; Database=folio; Integrated Security=True";
+            var c2 = "Data Source=tcp:mbmuw7kmu9.database.windows.net,1433;Database=dibonae-folio_db;User Id=CoderFoundry@mbmuw7kmu9;Password=LearnToCode1";
             var dbName = "wallet";
             // load your SQL into a SchemaObjectCOllection
             SchemaObjectCollection schema = new SchemaObjectCollection().LoadFromDir(@"..\..\Sql\");
             //var sFile = Path.Combine(Environment.CurrentDirectory, @"..\..\Sql\Security\"); 
 
             // automatically create the database
-            SchemaInstaller.CreateDatabase(connectionString);
+            SchemaInstaller.CreateDatabase(c2);
 
             // automatically install it, or upgrade it
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(c2))
             {
                 connection.Open();
                 SchemaInstaller installer = new SchemaInstaller(connection);

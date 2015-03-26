@@ -153,6 +153,10 @@ div#landing-header h1 {
     width: 100%; 
 } 
 
+.transaction-head :nth-child(2) {
+    text-align: right; 
+} 
+
 .transaction-date {
     display: table-cell; 
     text-align: left; 
