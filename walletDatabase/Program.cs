@@ -37,7 +37,7 @@ namespace walletDatabase
                 installer.Install(dbName, schema);
             }
 
-            Thread.Sleep(5 * 1000); 
+            Thread.Sleep(2 * 1000); 
         }
     }
 }
