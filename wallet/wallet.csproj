@@ -229,6 +229,7 @@
   <ItemGroup>
     <Content Include="App\History\history.html" />
     <Content Include="App\Dash\dashboard.html" />
+    <Content Include="App\History\history.ctrl.js" />
     <Content Include="App\Landing\landing.ctrl.js" />
     <Content Include="App\Landing\landing.html" />
     <Content Include="App\Dash\dash.ctrl.js" />
