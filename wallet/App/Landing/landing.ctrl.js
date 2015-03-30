@@ -3,18 +3,18 @@
         .module("Wallet")
         .controller("Landing", landing)
 
-    landing.$inject = ['Account', '$http', '$location', 'authService']
+    landing.$inject = ['Account', '$http', '$location', 'authService', '$state' ]
 
-    function landing(Account, $http, $location, authService) {
+    function landing(Account, $http, $location, authService, $state) {
         var vm = this
-        vm.isRegister = false
 
+        vm.isRegister = false
         vm.flip = function () {
             var v = vm.isRegister
             if (v == true) { vm.isRegister = false }
             if (v == false) { vm.isRegister = true }
         }
-        loggedInCheck() // Already logged in? 
+
         vm.authenticate = authenticate
 
 
@@ -39,11 +39,13 @@
             })
             .then(function (d) {
                 vm.success = true; 
+                $state.go("dashboard") 
             },
             function (errors) {
                 report(errors)
             })
         }
+
         // Login // 
         function login(d) {
             authService.login({
@@ -52,17 +54,14 @@
             })
             .then(function (d) {
                 vm.success = true; 
+                $state.go("dashboard") 
             },
             function (errors) {
                 report(errors)
             })
         }
-        // Redirect if User is Logged in // 
-        function loggedInCheck() {
-            authService.refresh()
-            if (authService.info.isAuth) {
-            }
-        }
+
+        // Register // 
         function report(d) {
             attrs = [
                 "error_description", "Message",
