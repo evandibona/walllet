@@ -16,13 +16,13 @@
         $urlRouterProvider.otherwise("/")
 
         $stateProvider
-            .state('landing', {
-                url: "/",
-                templateUrl: "App/Landing/landing.html"
-            })
             .state('dashboard', {
-                url: "/dash",
+                url: "/",
                 templateUrl: "App/Dash/dashboard.html"
+            })
+            .state('landing', {
+                url: "/landing",
+                templateUrl: "App/Landing/landing.html"
             })
             .state('history', {
                 url: "/history",
@@ -35,7 +35,7 @@
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
 
-        authService.fillAuthData();
+        authService.refresh();
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             //For later improved security

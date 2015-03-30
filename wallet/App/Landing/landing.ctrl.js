@@ -65,7 +65,6 @@
         }
         function report(d) {
             attrs = [
-                // v This needs to be fixed. 
                 "error_description", "Message",
                 "MessageDetail", 
                 "data.ModelState['']", 
