@@ -30,7 +30,7 @@
             }, 
         ]
 
-        $http.post('/api/proc/', ['actionsOfHH', 'Cognome']).success(loadTable).error(showError)
+        vm.uccelloVerde = $http.post('/api/proc/', ['actionsOfHH', 'Cognome']).success(loadTable).error(showError)
 
         //////
         function showError(a, b, c, d) {

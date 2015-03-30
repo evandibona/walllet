@@ -3,8 +3,6 @@
         .module("Wallet")
         .controller("Dashboard", dash)
 
-    //app.$inject = ['$location', 'authService'] 
-
     function dash() {
         var vm = this
         // get the ten most recent transactions made inside this household. 

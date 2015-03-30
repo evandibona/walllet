@@ -19,7 +19,7 @@
 
         var _responseError = function (rejection) {
             if (rejection.status === 401) {
-                $location.path('/login');
+                $location.path('/landing');
             }
             return $q.reject(rejection);
         }

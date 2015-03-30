@@ -50,8 +50,6 @@
             //For later improved security
             var authorized = false
 
-            console.log(toState)
-
             if (toState.data.Authorize.indexOf("Anonymous") > -1)
                 authorized = true
             else {
