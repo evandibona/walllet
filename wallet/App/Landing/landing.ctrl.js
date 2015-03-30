@@ -39,7 +39,6 @@
             })
             .then(function (d) {
                 vm.success = true; 
-                toDashboard()
             },
             function (errors) {
                 report(errors)
@@ -53,7 +52,6 @@
             })
             .then(function (d) {
                 vm.success = true; 
-                toDashboard()
             },
             function (errors) {
                 report(errors)
@@ -63,12 +61,7 @@
         function loggedInCheck() {
             authService.refresh()
             if (authService.info.isAuth) {
-                toDashboard()
             }
-        }
-        // Helpers //
-        function toDashboard() {
-            $location.path('/dash')
         }
         function report(d) {
             attrs = [
