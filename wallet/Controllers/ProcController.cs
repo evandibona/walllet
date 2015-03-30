@@ -38,7 +38,8 @@ namespace Wallet.Controllers
         private static SqlConnection conn = new SqlConnection(connString);
         public static List<Dictionary<string, string>> actionsOfHH(string hh)
         {
-            List<Dictionary<string, string>> values = conn.Execute("ActionsOfHH", new { HouseholdId = 22 });
+            List<Dictionary<string, string>> values = new List<Dictionary<string, string>>(); 
+            conn.Execute("ActionsOfHH", new { HouseholdId = 22 });
             return values;
         }
     }

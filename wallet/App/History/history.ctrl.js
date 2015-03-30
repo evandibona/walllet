@@ -3,9 +3,9 @@
         .module("Wallet")
         .controller("History", history) 
 
-    history.$inject = [] 
+    history.$inject = ['$http'] 
 
-    function history() {
+    function history($http) {
         var vm = this
         vm.actions = [
             {
@@ -29,5 +29,20 @@
                 'who' : 'David Drew'
             }, 
         ]
+
+        $http.post('/api/proc/', ['actionsOfHH', 'Cognome']).success(loadTable).error(showError)
+
+        //////
+        function showError(a, b, c, d) {
+            vm.actions[0] = {
+                'what': a,
+                'when': b,
+                'who': c, 
+                'other': d, 
+            }
+        }
+        function loadTable(data) {
+            vm.actions = data 
+        }
     }
 })()
