@@ -3,30 +3,32 @@
       ['$q', '$location',
       function ($q, $location) {
 
-        var authInterceptorServiceFactory = {};
+        var authInterceptorServiceFactory = {}
 
         var _request = function (config) {
 
-            config.headers = config.headers || {};
+            config.headers = config.headers || {}
 
-            var authData = localStorage.getItem('authorizationData');
+            var authData = JSON.parse(localStorage.getItem('authorizationData'))
             if (authData) {
-                config.headers.Authorization = 'Bearer ' + authData.token;
+                console.log(authData)
+                console.log(authData["token"])
+                config.headers.Authorization = 'Bearer ' + authData.token
             }
 
-            return config;
+            return config
         }
 
         var _responseError = function (rejection) {
             if (rejection.status === 401) {
-                $location.path('/landing');
+                $location.path('/landing')
             }
-            return $q.reject(rejection);
+            return $q.reject(rejection)
         }
 
-        authInterceptorServiceFactory.request = _request;
-        authInterceptorServiceFactory.responseError = _responseError;
+        authInterceptorServiceFactory.request = _request
+        authInterceptorServiceFactory.responseError = _responseError
 
-        return authInterceptorServiceFactory;
-    }]);
-})();
+        return authInterceptorServiceFactory
+    }])
+})()

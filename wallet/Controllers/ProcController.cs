@@ -7,13 +7,16 @@ using System.Web.Http;
 using System.Data.SqlClient;
 using Insight.Database;
 using System.Configuration;
+using Microsoft.AspNet.Identity;
 
 namespace Wallet.Controllers
 {
     [Authorize]
+    [RoutePrefix("api/proc")] 
     public class ProcController : ApiController
     {
         // POST api/proc
+        [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         public IEnumerable<string> Post(List<string> procedure)
         {
             var name = procedure[0];
