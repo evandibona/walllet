@@ -3,13 +3,13 @@
         .module("Wallet")
         .controller("WholeApp", app) 
 
-    app.$inject = ['$location', 'authService'] 
+    app.$inject = ['$location', 'authService', '$state'] 
 
-    function app($location, authService) {
+    function app($location, authService, $state) {
         var vm = this
         vm.logout = function () {
             authService.logout() 
-            $location.path("/") 
+            $state.go("landing")
         }
         // Current User
         authService.refresh() 
