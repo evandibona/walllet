@@ -11,8 +11,6 @@
 
             var authData = JSON.parse(localStorage.getItem('authorizationData'))
             if (authData) {
-                console.log(authData)
-                console.log(authData["token"])
                 config.headers.Authorization = 'Bearer ' + authData.token
             }
 
