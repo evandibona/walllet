@@ -3,36 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Data.SqlClient;
 using Insight.Database;
 using System.Configuration;
 using Microsoft.AspNet.Identity;
+using Microsoft.SqlServer;
+using Wallet.Models.Books;
 
 namespace Wallet.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/books")] 
+    [RoutePrefix("api/books")]
     public class BooksController : ApiController
     {
-        // POST api/books/HistoricalActions
-        [HttpPost] 
-        public string[] actions(string household)
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        [HttpGet] 
-        public string test()
-        {
-            return "This is a test that has succeded!";
-        }
+        private static string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        private static SqlConnection conn = new SqlConnection(connectionString);
 
         // POST api/books/HistoricalActions
-        [HttpPost] 
-        public string[] historicalActions(string household)
+        [HttpPost]
+        // Other methods with more objects will need models. 
+        public List<Dictionary<string, string>> ActionsHH([FromBody] Dictionary<string, string> input)
         {
-            return new string[] { "value1", "value2" };
+            var household = input["household"];
+            var hhs = new List<Dictionary<string, string>>();
+
+            var hhId = 1; // get id for Smith
+            var a = conn.Query<List<string>>("[Models].[ActionsOfHH]", new { householdId = hhId }); 
+
+            return hhs;
         }
     }
 }
