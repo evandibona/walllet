@@ -15,7 +15,7 @@
             },
         ]
 
-        vm.uccelloVerde = $http.post('/api/books/HistoricalActions', {household: "LastName"}).success(loadTable).error(showError)
+        vm.uccelloVerde = $http.post('/api/books/GetActions', {household: "LastName"}).success(loadTable).error(showError)
 
         //  //  //
         function showError(a, b, c, d) {

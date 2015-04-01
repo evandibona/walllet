@@ -17,15 +17,12 @@ namespace walletDatabase
     {
         static void Main()
         {
-            // myConnection
-            var connectionString = "Server=.\\SQLSERVER; Database=folio; Integrated Security=True";
-            var c2 = "Data Source=tcp:mbmuw7kmu9.database.windows.net,1433;Database=dibonae-folio_db;User Id=CoderFoundry@mbmuw7kmu9;Password=LearnToCode1";
-            var dbName = "wallet";
-            // load your SQL into a SchemaObjectCOllection
-            SchemaObjectCollection schema = new SchemaObjectCollection().LoadFromDir(@"..\..\Sql\");
-            //var sFile = Path.Combine(Environment.CurrentDirectory, @"..\..\Sql\Security\"); 
+            var schema = new SchemaObjectCollection();
+            schema.Load(Assembly.GetExecutingAssembly()); 
 
-            // automatically create the database
+            var c2 = "Data Source=tcp:mbmuw7kmu9.database.windows.net,1433;Database=dibonae-folio_db;User Id=CoderFoundry@mbmuw7kmu9;Password=LearnToCode1";
+            //var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString; 
+            var dbName = "dibonae-folio_db";
             SchemaInstaller.CreateDatabase(c2);
 
             // automatically install it, or upgrade it
@@ -38,30 +35,6 @@ namespace walletDatabase
             }
 
             Thread.Sleep(2 * 1000); 
-        }
-    }
-}
-namespace Insight.Database.Schema
-{
-    static class SchemaExtension
-    {
-        public static SchemaObjectCollection LoadFromDir(this SchemaObjectCollection self, string projectPath)
-        {
-            var path = Path.Combine(Environment.CurrentDirectory, projectPath);
-
-            foreach (string file in Directory.GetFiles(path))
-                self.Load(file);
-
-            string[] dirs = Directory.GetDirectories(path, "*", SearchOption.AllDirectories);
-            foreach (string dir in dirs)
-            {
-                string[] files = Directory.GetFiles(dir);
-                foreach (string file in files)
-                {
-                    self.Load(file);
-                }
-            }
-            return self;
         }
     }
 }

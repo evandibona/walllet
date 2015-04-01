@@ -216,7 +216,8 @@
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Books\basicTypes.cs" />
+    <Compile Include="Models\Books\dbTypes.cs" />
+    <Compile Include="Models\Interfaces\AccessBooks.cs" />
     <Compile Include="Models\Interfaces\IUserDataAccess.cs" />
     <Compile Include="Models\Stores\InsightUserStore.cs" />
     <Compile Include="Models\Database\UserLogin.cs" />

@@ -6,11 +6,14 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Data.SqlClient;
-using Insight.Database;
 using System.Configuration;
+using System.Threading.Tasks; 
+using Insight.Database;
 using Microsoft.AspNet.Identity;
 using Microsoft.SqlServer;
+using Microsoft.Owin;
 using Wallet.Models.Books;
+using Wallet.Models.Database;
 
 namespace Wallet.Controllers
 {
@@ -18,21 +21,19 @@ namespace Wallet.Controllers
     [RoutePrefix("api/books")]
     public class BooksController : ApiController
     {
-        private static string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        private static SqlConnection conn = new SqlConnection(connectionString);
+        private IBooksDataAccess hacts;
 
-        // POST api/books/HistoricalActions
-        [HttpPost]
-        // Other methods with more objects will need models. 
-        public List<Dictionary<string, string>> ActionsHH([FromBody] Dictionary<string, string> input)
+        public BooksController()
         {
-            var household = input["household"];
-            var hhs = new List<Dictionary<string, string>>();
+            hacts = HttpContext.Current.GetOwinContext().Get<SqlConnection>().As<IBooksDataAccess>(); 
+        }
 
-            var hhId = 1; // get id for Smith
-            var a = conn.Query("[Models].[ActionsOfHH]", new { householdId = hhId }); 
-
-            return hhs;
+        // POST api/books/GetActions
+        [HttpPost]
+        [Route("GetActions")] 
+        public Task<IList<HistoryAction>> ActionsHH([FromBody] Dictionary<string, string> input)
+        {
+            return hacts.GetHistoricalActions(1); 
         }
     }
 }

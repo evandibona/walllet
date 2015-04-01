@@ -63,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sql\Models\ModelsSchema.sql" />
-    <Content Include="Sql\Models\History\ActionsOfHH.sql" />
+    <Content Include="Sql\Models\History\GetActions.sql" />
     <Content Include="Sql\Security\Procedures\AddUserToRole.sql" />
     <Content Include="Sql\Security\Procedures\FindUserByEmail.sql" />
     <Content Include="Sql\Security\Procedures\FindUserByLogin.sql" />

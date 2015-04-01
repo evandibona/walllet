@@ -1,7 +1,19 @@
 ﻿﻿namespace Wallet.Models.Books
  {
-     public class AppObjects
+     using System;
+     using Insight.Database; 
+     public class HistoryAction
      {
-         public string household { get; set; }
+         [Column("HouseholdId")] 
+         public int         HouseholdId { get; set; }
+
+         [Column("UserId")]
+         public int         UserId { get; set; }
+
+         [Column("Action")]
+         public string      What { get; set; }
+
+         [Column("When")]
+         public DateTime    When { get; set; }
      }
  }

@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [Models].[ActionsOfHH] 
+﻿CREATE PROCEDURE [Models].[GetHistoricalActions] 
 @householdId int
 AS
 
