@@ -20,13 +20,13 @@ namespace walletDatabase
             var schema = new SchemaObjectCollection();
             schema.Load(Assembly.GetExecutingAssembly()); 
 
-            var c2 = "Data Source=tcp:mbmuw7kmu9.database.windows.net,1433;Database=dibonae-folio_db;User Id=CoderFoundry@mbmuw7kmu9;Password=LearnToCode1";
-            //var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString; 
+            string connectionString = "Data Source=tcp:mbmuw7kmu9.database.windows.net,1433;Database=dibonae-folio_db;User Id=CoderFoundry@mbmuw7kmu9;Password=LearnToCode1";
+            //string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString; 
             var dbName = "dibonae-folio_db";
-            SchemaInstaller.CreateDatabase(c2);
+            SchemaInstaller.CreateDatabase(connectionString);
 
             // automatically install it, or upgrade it
-            using (SqlConnection connection = new SqlConnection(c2))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SchemaInstaller installer = new SchemaInstaller(connection);

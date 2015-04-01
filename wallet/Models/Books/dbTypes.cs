@@ -5,15 +5,15 @@
      public class HistoryAction
      {
          [Column("HouseholdId")] 
-         public int         HouseholdId { get; set; }
+         public int             HouseholdId { get; set; }
 
          [Column("UserId")]
-         public int         UserId { get; set; }
+         public int             UserId { get; set; }
 
          [Column("Action")]
-         public string      What { get; set; }
+         public string          What { get; set; }
 
          [Column("When")]
-         public DateTime    When { get; set; }
+         public DateTimeOffset  When { get; set; }
      }
  }

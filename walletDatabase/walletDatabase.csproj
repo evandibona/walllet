@@ -56,14 +56,25 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sql\Models\ModelsSchema.sql" />
+    <EmbeddedResource Include="Sql\*.sql" />
     <Content Include="Sql\Models\History\GetActions.sql" />
+    <Content Include="Sql\Models\History\HistoricalActions.sql" />
+    <Content Include="Sql\Models\ModelsSchema.sql" />
     <Content Include="Sql\Security\Procedures\AddUserToRole.sql" />
     <Content Include="Sql\Security\Procedures\FindUserByEmail.sql" />
     <Content Include="Sql\Security\Procedures\FindUserByLogin.sql" />
@@ -81,7 +92,6 @@
     <Content Include="Sql\Security\Tables\UserLogins.sql" />
     <Content Include="Sql\Security\Tables\UserRoles.sql" />
     <Content Include="Sql\Security\Tables\Users.sql" />
-    <Content Include="Sql\Models\History\HistoricalActions.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

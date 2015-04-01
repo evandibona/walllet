@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System; 
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -13,7 +13,10 @@ using Microsoft.AspNet.Identity;
 using Microsoft.SqlServer;
 using Microsoft.Owin;
 using Wallet.Models.Books;
+using Wallet.Models.Stores; 
 using Wallet.Models.Database;
+using Microsoft.Owin.Security.OAuth;
+using Owin;
 
 namespace Wallet.Controllers
 {
@@ -21,12 +24,7 @@ namespace Wallet.Controllers
     [RoutePrefix("api/books")]
     public class BooksController : ApiController
     {
-        private IBooksDataAccess hacts;
-
-        public BooksController()
-        {
-            hacts = HttpContext.Current.GetOwinContext().Get<SqlConnection>().As<IBooksDataAccess>(); 
-        }
+        private IBooksDataAccess hacts = ConfigurationManager.ConnectionStrings["DefaultConnection"].As<IBooksDataAccess>();
 
         // POST api/books/GetActions
         [HttpPost]
