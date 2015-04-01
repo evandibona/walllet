@@ -30,7 +30,7 @@ namespace Wallet.Controllers
             var hhs = new List<Dictionary<string, string>>();
 
             var hhId = 1; // get id for Smith
-            var a = conn.Query<List<string>>("[Models].[ActionsOfHH]", new { householdId = hhId }); 
+            var a = conn.Query("[Models].[ActionsOfHH]", new { householdId = hhId }); 
 
             return hhs;
         }

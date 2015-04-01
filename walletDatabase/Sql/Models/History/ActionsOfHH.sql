@@ -1,7 +1,6 @@
 ﻿CREATE PROCEDURE [Models].[ActionsOfHH] 
+@householdId int
 AS
-
-DECLARE @householdId int
 
 SELECT Id,'Action','When',UserId,HouseholdId
 FROM Models.HistoricalActions 
