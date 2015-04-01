@@ -71,29 +71,30 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\*.sql" />
-    <Content Include="Sql\Models\History\GetActions.sql" />
-    <Content Include="Sql\Models\History\HistoricalActions.sql" />
-    <Content Include="Sql\Models\ModelsSchema.sql" />
-    <Content Include="Sql\Security\Procedures\AddUserToRole.sql" />
-    <Content Include="Sql\Security\Procedures\FindUserByEmail.sql" />
-    <Content Include="Sql\Security\Procedures\FindUserByLogin.sql" />
-    <Content Include="Sql\Security\Procedures\FindUserByUserName.sql" />
-    <Content Include="Sql\Security\Procedures\GetLoginsForUser.sql" />
-    <Content Include="Sql\Security\Procedures\GetRolesForUser.sql" />
-    <Content Include="Sql\Security\Procedures\GetUserClaims.sql" />
-    <Content Include="Sql\Security\Procedures\GetUserLoginsByUserId.sql" />
-    <Content Include="Sql\Security\Procedures\IsUserInRole.sql" />
-    <Content Include="Sql\Security\Procedures\RemoveUserClaim.sql" />
-    <Content Include="Sql\Security\Procedures\RemoveUserFromRole.sql" />
-    <Content Include="Sql\Security\SecuritySchema.sql" />
-    <Content Include="Sql\Security\Tables\Roles.sql" />
-    <Content Include="Sql\Security\Tables\UserClaims.sql" />
-    <Content Include="Sql\Security\Tables\UserLogins.sql" />
-    <Content Include="Sql\Security\Tables\UserRoles.sql" />
-    <Content Include="Sql\Security\Tables\Users.sql" />
+    <EmbeddedResource Include="Sql\Models\ModelsSchema.sql" />
+    <EmbeddedResource Include="Sql\Security\Procedures\AddUserToRole.sql" />
+    <EmbeddedResource Include="Sql\Security\Procedures\FindUserByEmail.sql" />
+    <EmbeddedResource Include="Sql\Security\Procedures\FindUserByLogin.sql" />
+    <EmbeddedResource Include="Sql\Security\Procedures\FindUserByUserName.sql" />
+    <EmbeddedResource Include="Sql\Security\Procedures\GetLoginsForUser.sql" />
+    <EmbeddedResource Include="Sql\Security\Procedures\GetRolesForUser.sql" />
+    <EmbeddedResource Include="Sql\Security\Procedures\GetUserClaims.sql" />
+    <EmbeddedResource Include="Sql\Security\Procedures\GetUserLoginsByUserId.sql" />
+    <EmbeddedResource Include="Sql\Security\Procedures\IsUserInRole.sql" />
+    <EmbeddedResource Include="Sql\Security\Procedures\RemoveUserClaim.sql" />
+    <EmbeddedResource Include="Sql\Security\Procedures\RemoveUserFromRole.sql" />
+    <EmbeddedResource Include="Sql\Security\SecuritySchema.sql" />
+    <EmbeddedResource Include="Sql\Security\Tables\Roles.sql" />
+    <EmbeddedResource Include="Sql\Security\Tables\UserClaims.sql" />
+    <EmbeddedResource Include="Sql\Security\Tables\UserLogins.sql" />
+    <EmbeddedResource Include="Sql\Security\Tables\UserRoles.sql" />
+    <EmbeddedResource Include="Sql\Security\Tables\Users.sql" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\Models\History\GetActions.sql" />
+    <EmbeddedResource Include="Sql\Models\History\HistoricalActions.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
