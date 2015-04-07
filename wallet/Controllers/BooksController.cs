@@ -29,8 +29,9 @@ namespace Wallet.Controllers
         // POST api/books/GetActions
         [HttpPost]
         [Route("GetActions")] 
-        public Task<IList<HistoryAction>> ActionsHH([FromBody] Dictionary<string, string> input)
+        public IList<HistoryAction> ActionsHH([FromBody] Dictionary<string, string> input)
         {
+            var hackyIsMe = hacts.GetHistoricalActions(1); 
             return hacts.GetHistoricalActions(1); 
         }
     }

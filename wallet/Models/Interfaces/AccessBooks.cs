@@ -9,9 +9,9 @@ namespace Wallet.Models.Database
     [Sql(Schema = "Models")]
     public interface IBooksDataAccess
     {
-        Task<IList<HistoryAction>> GetHistoricalActions(int HouseholdId);
+        IList<HistoryAction> GetHistoricalActions(int HouseholdId);
 
         // auto procs
-        Task<int> InsertHistoricalAction(HistoryAction action);
+        int InsertHistoricalAction(HistoryAction action);
     }
 }
