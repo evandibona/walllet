@@ -90,10 +90,12 @@
     <EmbeddedResource Include="Sql\Security\Tables\UserRoles.sql" />
     <EmbeddedResource Include="Sql\Security\Tables\Users.sql" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Sql\Models\History\GetActions.sql" />
     <EmbeddedResource Include="Sql\Models\History\HistoricalActions.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\Models\Households\Households.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

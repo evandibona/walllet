@@ -4,7 +4,7 @@
     [Action]		nvarchar(150)  			NOT NULL, 
 	[When]			date					NOT NULL, 
 	[UserId]		int						NOT NULL, 
-	[Household]		uniqueidentifier		NOT NULL, 
+	[HouseholdId]	int						NOT NULL, 
  )
  GO
 
