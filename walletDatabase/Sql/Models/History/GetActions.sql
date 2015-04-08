@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [Models].[GetHistoricalActions] 
-@householdId int
+	@householdId int
 AS
 
-SELECT 'Id','Action','When','UserId','HouseholdId' 
-FROM Models.HistoricalActions 
-WHERE (HouseholdId = @householdId)
+SELECT [Action],[When],Name FROM Models.HistoricalActions 
+	JOIN Security.Users ON Security.Users.Id = Models.HistoricalActions.UserId
+	WHERE Models.HistoricalActions.HouseholdId = @householdId 

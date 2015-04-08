@@ -15,9 +15,9 @@
             },
         ]
 
-        vm.uccelloVerde = $http.post('/api/books/GetActions', {household: "LastName"}).success(loadTable).error(showError)
+        vm.nothingInteresting = $http.post('/api/books/GetActions', { household: "Pancetta" }).success(loadTable).error(showError)
 
-        //  //  //
+        //////////
         function showError(a, b, c, d) {
             vm.actions[0] = {
                 'what': a,
@@ -27,7 +27,7 @@
             }
         }
         function loadTable(data) {
-            vm.actions = data
+            vm.actions = data 
         }
     }
 })()

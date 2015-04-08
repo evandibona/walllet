@@ -24,15 +24,15 @@ namespace Wallet.Controllers
     [RoutePrefix("api/books")]
     public class BooksController : ApiController
     {
-        private IBooksDataAccess hacts = ConfigurationManager.ConnectionStrings["DefaultConnection"].As<IBooksDataAccess>();
+        private IBooksDataAccess access = ConfigurationManager.ConnectionStrings["DefaultConnection"].As<IBooksDataAccess>();
 
         // POST api/books/GetActions
         [HttpPost]
         [Route("GetActions")] 
         public IList<HistoryAction> ActionsHH([FromBody] Dictionary<string, string> input)
         {
-            var hackyIsMe = hacts.GetHistoricalActions(1); 
-            return hacts.GetHistoricalActions(1); 
+            var results = access.GetHistoricalActions(6); 
+            return results; 
         }
     }
 }

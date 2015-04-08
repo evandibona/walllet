@@ -4,16 +4,13 @@
      using Insight.Database; 
      public class HistoryAction
      {
-         [Column("HouseholdId")] 
-         public int             HouseholdId { get; set; }
-
-         [Column("UserId")]
-         public int             UserId { get; set; }
+         [Column("Name")]
+         public string          who { get; set; }
 
          [Column("Action")]
-         public string          What { get; set; }
+         public string          what { get; set; }
 
          [Column("When")]
-         public DateTimeOffset  When { get; set; }
+         public DateTimeOffset  when { get; set; }
      }
  }
