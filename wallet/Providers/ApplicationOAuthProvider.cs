@@ -34,31 +34,16 @@ namespace Wallet.Providers
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
-            bool isEmail;
-
-            try
-            {
-                MailAddress m = new MailAddress(context.UserName);
-                isEmail = true;
-            }
-            catch (FormatException)
-            {
-                isEmail = false;
-            }
-
             ApplicationUser user;
             var username = context.UserName;
 
-            if (isEmail)
+            var userLookup = await userManager.FindByEmailAsync(context.UserName);
+            if (userLookup != null)
             {
-                var userLookup = await userManager.FindByEmailAsync(context.UserName);
-                if (userLookup != null)
-                {
-                    username = userLookup.UserName;
-                }
+                username = userLookup.UserName;
             }
 
-            user = await userManager.FindAsync(username, context.Password); 
+            user = await userManager.FindAsync(username, context.Password);
 
             if (user == null)
             {
