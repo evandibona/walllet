@@ -11,6 +11,6 @@
          public string          what { get; set; }
 
          [Column("When")]
-         public DateTimeOffset  when { get; set; }
+         public string          when { get; set; }
      }
  }
