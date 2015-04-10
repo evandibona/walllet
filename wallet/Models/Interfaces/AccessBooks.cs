@@ -9,7 +9,7 @@ namespace Wallet.Models.Database
     [Sql(Schema = "Models")]
     public interface IBooksDataAccess
     {
-        IList<HistoryAction> GetHistoricalActions(int HouseholdId);
+        IList<HistoryAction> GetHistoricalActions(string UserName);
 
         // auto procs
         int InsertHistoricalAction(HistoryAction action);

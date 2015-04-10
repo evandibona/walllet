@@ -3,19 +3,21 @@
         .module("Wallet")
         .controller("History", history)
 
-    history.$inject = ['$http']
+    history.$inject = ['$http', 'authService']
 
-    function history($http) {
+    function history($http, authService) {
         var vm = this
         vm.actions = [
             {
-                what: 'a',
-                when: 'b',
-                who: 'c'
+                what: 'data',
+                when: 'is currently',
+                who: 'loading...'
             },
         ]
 
-        vm.nothingInteresting = $http.post('/api/books/GetActions', { household: "Pancetta" }).success(loadTable).error(showError)
+        authService.refresh() 
+        var username = authService.info.username 
+        vm.nothingInteresting = $http.post('/api/books/GetActions', { "name": username }).success(loadTable).error(showError)
 
         //////////
         function showError(a, b, c, d) {

@@ -31,7 +31,8 @@ namespace Wallet.Controllers
         [Route("GetActions")] 
         public IList<HistoryAction> ActionsHH([FromBody] Dictionary<string, string> input)
         {
-            var results = access.GetHistoricalActions(6); 
+            var name = input["name"]; 
+            var results = access.GetHistoricalActions(name); 
             return results; 
         }
     }
