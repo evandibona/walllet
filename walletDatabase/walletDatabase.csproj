@@ -91,11 +91,26 @@
     <EmbeddedResource Include="Sql\Security\Tables\Users.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Models\History\GetActions.sql" />
-    <EmbeddedResource Include="Sql\Models\History\HistoricalActions.sql" />
+    <EmbeddedResource Include="Sql\Models\Procedures\GetActions.sql" />
+    <EmbeddedResource Include="Sql\Models\Tables\HistoricalActions.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Models\Households\Households.sql" />
+    <EmbeddedResource Include="Sql\Models\Tables\Households.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\Models\Tables\Transactions.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\Models\Tables\Streams.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\Models\Tables\BankAccounts.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\Models\Tables\BalanceCheckpoints.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\Models\Tables\Pools.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
