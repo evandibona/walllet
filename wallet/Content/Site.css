@@ -208,16 +208,3 @@ body * {
   color: white; }
 
 /*# sourceMappingURL=Site.css.map */
-.section {
-    text-align: center; 
-    background: white; 
-    padding: 1em 5px; 
-}
-
-.pure-table {
-    margin: 0 auto; 
-}
-
-#history-table {
-    text-align: left; 
-}

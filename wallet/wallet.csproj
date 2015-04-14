@@ -229,6 +229,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\app.run.js" />
+    <Content Include="App\Household\household.ctrl.js" />
+    <Content Include="App\Household\household.html" />
     <Content Include="App\History\history.html" />
     <Content Include="App\Dash\dashboard.html" />
     <Content Include="App\History\history.ctrl.js" />
