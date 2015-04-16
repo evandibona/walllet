@@ -28,6 +28,11 @@
                     Authorize: "Anonymous"
                 }
             })
+            .state('transactions', {
+                url: "/transactions",
+                templateUrl: "App/Transactions/transactions.html", 
+                data: { Authorize: "All" }
+            })
             .state('household', {
                 url: "/household",
                 templateUrl: "App/Household/household.html", 

@@ -62,6 +62,12 @@ ul.pure-menu-children a {
 .tile-alizarin {
   background: #e74c3c; }
 
+.tile-body {
+  background: white;
+  color: black;
+  text-align: left;
+  padding: 0.5em 1.5em; }
+
 .stacked-list {
   list-style-type: none;
   padding: 0;
@@ -125,17 +131,6 @@ ul.pure-menu-children a {
   border-top: 7px solid #e74c3c;
   color: #e74c3c; }
 
-.pools {
-  text-align: center; }
-  .pools #canvas {
-    height: 15em;
-    background: white; }
-
-#bank-accounts {
-  text-align: center; }
-  #bank-accounts .account-label * {
-    display: inline; }
-
 body.landing {
   background-image: url("https://unsplash.imgix.net/uploads/14129863345840df499fc/0165574c?q=75&fm=jpg&s=6e5127e797feb9b5a72f7ae4a0f3a89b");
   background-repeat: no-repeat;
@@ -177,6 +172,26 @@ div#landing-header h1 {
 
 .haloyellow {
   border: 7px solid #f1c40f; }
+
+.pools {
+  text-align: center; }
+  .pools #canvas {
+    height: 15em;
+    background: white; }
+
+#bank-accounts {
+  text-align: center; }
+  #bank-accounts .account-label * {
+    display: inline; }
+
+#new-transaction {
+  background: #225588; }
+  #new-transaction input#description {
+    max-width: 100%; }
+  #new-transaction #description {
+    width: 100%; }
+  #new-transaction #amount {
+    width: 40%; }
 
 /*  Universal Sitewide Styling  */
 @font-face {

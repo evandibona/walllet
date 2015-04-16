@@ -1,7 +1,8 @@
 ﻿ CREATE TABLE Models.BalanceCheckpoints
  (
     [Id]			int		IDENTITY(1,1)	NOT NULL, --Identity( seed, increment ) 
-    [Value]			money					NULL, 
+    [Value]			money					NOT NULL, 
+    [Date]			date					NOT NULL, 
  )
  GO
 

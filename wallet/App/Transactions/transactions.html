@@ -1,0 +1,41 @@
+﻿<ng-include src="'App/Navbar/navbar.html'">
+</ng-include>
+<div class="container body-content"
+     ng-init="appMain.isLanding = false"
+     ng-controller="History as main">
+
+    <div class="pure-g">
+        <div class="pure-u-1-1 pure-u-md-1-2">
+            <div id="new-transaction" class="tile tile-belize-hole">
+                <h3>Enter A Transaction</h3>
+                <div class="tile-body">
+                    <form class="pure-form pure-form-stacked">
+                        <fieldset>
+                            <label for="description">Description</label>
+                            <input id="description" type="text" placeholder="Simple Description" />
+
+                            <label for="amount">Amount</label>
+                            <input id="amount" type="text" placeholder="0.00" />
+
+                            <label for="spent" class="pure-radio">
+                                <input id="spent" type="radio" name="priceRadios" value="spent" checked />
+                                Spent
+                            </label>
+
+                            <label for="earned" class="pure-radio">
+                                <input id="earned" type="radio" name="priceRadios" value="earned" />
+                                Earned
+                            </label>
+                        </fieldset>
+                        <input type="submit" class="pure-button pure-button-primary" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="pure-u-1-1 pure-u-md-1-2">
+            <div id="my-transactions" class=" tile tile-sun-flower transactions">
+                <h3>My Transactions</h3>
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,7 +13,7 @@
                     <li ng-repeat="tx in main.recentTransactions" class="transaction">
                         <div class="transaction-head">
                             <h4 class="transaction-date"> {{tx.date}} </h4>
-                            <h4 class="transaction-date"> {{tx.user}} </h4>
+                            <h4 class="transaction-name"> {{tx.user}} </h4>
                         </div>
                         <span>{{tx.amnt}}</span>
                         <p><i>{{tx.desc}}</i></p>
