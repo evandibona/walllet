@@ -24,7 +24,8 @@ namespace Wallet.Controllers
     [RoutePrefix("api/books")]
     public class BooksController : ApiController
     {
-        private IBooksDataAccess access = ConfigurationManager.ConnectionStrings["DefaultConnection"].As<IBooksDataAccess>();
+        private static SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString); 
+        private static IBooksDataAccess access = conn.As<IBooksDataAccess>();
 
         // POST api/books/GetActions
         [HttpPost]
@@ -36,12 +37,11 @@ namespace Wallet.Controllers
             return results; 
         }
 
-        // POST api/books/GetActions
+        // POST api/books/InsertTransaction
         [HttpPost]
         [Route("InsertTransaction")] 
-        public int InsertTx([FromBody] Dictionary<string, string> input)
+        public void InsertTx([FromBody] Dictionary<string, string> input)
         {
-            return access.InsertTransaction(input); 
         }
     }
 }
