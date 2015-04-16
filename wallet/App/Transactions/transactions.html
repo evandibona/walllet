@@ -2,32 +2,32 @@
 </ng-include>
 <div class="container body-content"
      ng-init="appMain.isLanding = false"
-     ng-controller="History as main">
+     ng-controller="Transactions as main">
 
     <div class="pure-g">
         <div class="pure-u-1-1 pure-u-md-1-2">
             <div id="new-transaction" class="tile tile-belize-hole">
                 <h3>Enter A Transaction</h3>
                 <div class="tile-body">
-                    <form class="pure-form pure-form-stacked">
+                    <form class="pure-form pure-form-stacked" ng-submit="main.newTransaction()">
                         <fieldset>
                             <label for="description">Description</label>
-                            <input id="description" type="text" placeholder="Simple Description" />
+                            <input id="description" type="text" placeholder="Simple Description" ng-model="main.newTx['description']"/>
 
                             <label for="amount">Amount</label>
-                            <input id="amount" type="text" placeholder="0.00" />
+                            <input id="amount" type="text" placeholder="0.00" ng-model="main.newTx['amount']"/>
 
                             <label for="spent" class="pure-radio">
-                                <input id="spent" type="radio" name="priceRadios" value="spent" checked />
+                                <input id="spent" type="radio" name="priceRadios" value="0" ng-model="main.newTx['flow']" />
                                 Spent
                             </label>
 
                             <label for="earned" class="pure-radio">
-                                <input id="earned" type="radio" name="priceRadios" value="earned" />
+                                <input id="earned" type="radio" name="priceRadios" value="1" ng-model="main.newTx['flow']"/>
                                 Earned
                             </label>
                         </fieldset>
-                        <input type="submit" class="pure-button pure-button-primary" />
+                        <input type="submit" class="pure-button pure-button-belize-hole" />
                     </form>
                 </div>
             </div>

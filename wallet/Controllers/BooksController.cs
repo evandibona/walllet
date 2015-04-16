@@ -35,5 +35,13 @@ namespace Wallet.Controllers
             var results = access.GetHistoricalActions(name); 
             return results; 
         }
+
+        // POST api/books/GetActions
+        [HttpPost]
+        [Route("InsertTransaction")] 
+        public int InsertTx([FromBody] Dictionary<string, string> input)
+        {
+            return access.InsertTransaction(input); 
+        }
     }
 }
