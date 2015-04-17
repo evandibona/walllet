@@ -10,6 +10,7 @@ using System.Configuration;
 using System.Threading.Tasks; 
 using Insight.Database;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.SqlServer;
 using Microsoft.Owin;
 using Wallet.Models.Books;
@@ -24,8 +25,12 @@ namespace Wallet.Controllers
     [RoutePrefix("api/books")]
     public class BooksController : ApiController
     {
-        private static SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString); 
-        private static IBooksDataAccess access = conn.As<IBooksDataAccess>();
+        private IBooksDataAccess access; 
+        public BooksController()
+        {
+            access = HttpContext.Current.GetOwinContext().Get<SqlConnection>()
+                .As<IBooksDataAccess>(); 
+        }
 
         // POST api/books/GetActions
         [HttpPost]
