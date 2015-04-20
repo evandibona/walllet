@@ -9,7 +9,7 @@
         var vm = this
         vm.username = getUser() 
         vm.newTx = {
-            user: vm.username, 
+            username: vm.username, 
             flow: 0 
         }
         vm.newTransaction = createNewTx
@@ -20,6 +20,7 @@
             return authService.info.username
         }
         function createNewTx() {
+            console.log(vm.newTx)
             $http.post("/api/books/InsertTransaction", vm.newTx)
                 .success(refreshModels)
                 .error(error)

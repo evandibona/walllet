@@ -8,7 +8,7 @@
 	[PoolId]		int						NULL, 
     [Reconciled]	bit						NOT NULL, 
 	[Amount]		money					NOT NULL, 
-	[flow]			bit						NOT NULL, 
+	[Flow]			bit						NOT NULL, 
  )
  GO
 
@@ -16,5 +16,5 @@ ALTER TABLE [Models].[Transactions]
 	ADD CONSTRAINT [PK_Models.Transactions] PRIMARY KEY CLUSTERED ( [Id] ASC )
 GO
 
-AUTOPROC Insert,Delete,Update [Models].[Transactions] 
+AUTOPROC Delete,Update [Models].[Transactions] 
 GO

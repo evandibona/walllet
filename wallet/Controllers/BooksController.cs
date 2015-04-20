@@ -45,8 +45,9 @@ namespace Wallet.Controllers
         // POST api/books/InsertTransaction
         [HttpPost]
         [Route("InsertTransaction")] 
-        public void InsertTx([FromBody] Dictionary<string, string> input)
+        public int InsertTx([FromBody] InsertTransaction tx)
         {
+            return access.InsertTransaction(tx); 
         }
     }
 }
