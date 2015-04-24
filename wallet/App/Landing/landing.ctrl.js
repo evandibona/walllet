@@ -9,10 +9,12 @@
         var vm = this
 
         vm.isRegister = false
-        vm.flip = function () {
-            var v = vm.isRegister
-            if (v == true) { vm.isRegister = false }
-            if (v == false) { vm.isRegister = true }
+        vm.flip = function (mode) {
+            if (mode == 'login') {
+                vm.isRegister = false
+                vm.logreg = {} 
+            }
+            if (mode == 'register') { vm.isRegister = true }
         }
 
         vm.authenticate = authenticate
