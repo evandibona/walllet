@@ -136,13 +136,8 @@ ul.pure-menu-children a {
   color: white; }
 
 body.landing {
-  background-image: url("https://unsplash.imgix.net/uploads/14129863345840df499fc/0165574c?q=75&fm=jpg&s=6e5127e797feb9b5a72f7ae4a0f3a89b");
-  background-repeat: no-repeat;
-  background-position: 60% 40%; }
-  body.landing ::selection {
-    background: #D3F45A; }
-  body.landing ::-moz-selection {
-    background: #d3f45a; }
+  background: #2980b9;
+  color: white; }
 
 div#landing-header {
   margin-bottom: 2em; }
@@ -153,10 +148,15 @@ div#landing-header h1 {
   margin-top: 0.5em; }
 
 .login-modal {
-  border-radius: 5px; }
+  border-radius: 10px;
+  background: transparent;
+  border: 3px solid white; }
 
-.login-modal button {
-  width: 25%; }
+.login-modal .pure-button {
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 5px;
+  color: white; }
 
 .login-modal button.login {
   display: table-cell; }
@@ -166,16 +166,18 @@ div#landing-header h1 {
   float: right; }
 
 #login-form {
-  margin-top: 1.0em; }
+  margin-top: 1.0em;
+  background: transparent; }
 
 #login-form input {
-  width: 100%; }
-
-.halogreen {
-  border: 7px solid #27ae60; }
-
-.haloyellow {
-  border: 7px solid #f1c40f; }
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+  border: 1px solid white; }
+  #login-form input:focus {
+    background: #34495e;
+    border-color: #2c3e50;
+    color: #f1c40f; }
 
 .pools {
   text-align: center; }
