@@ -12,10 +12,10 @@
                     <form class="pure-form pure-form-stacked" ng-submit="main.newTransaction()">
                         <fieldset>
                             <label for="description">Description</label>
-                            <input id="description" type="text" placeholder="Simple Description" ng-model="main.newTx['description']"/>
+                            <input id="description" type="text" placeholder="Simple Description" ng-model="main.newTx['description']" />
 
                             <label for="amount">Amount</label>
-                            <input id="amount" type="text" placeholder="0.00" ng-model="main.newTx['amount']"/>
+                            <input id="amount" type="text" placeholder="0.00" ng-model="main.newTx['amount']" />
 
                             <label for="spent" class="pure-radio">
                                 <input id="spent" type="radio" name="priceRadios" value="0" ng-model="main.newTx['flow']" />
@@ -23,7 +23,7 @@
                             </label>
 
                             <label for="earned" class="pure-radio">
-                                <input id="earned" type="radio" name="priceRadios" value="1" ng-model="main.newTx['flow']"/>
+                                <input id="earned" type="radio" name="priceRadios" value="1" ng-model="main.newTx['flow']" />
                                 Earned
                             </label>
                         </fieldset>
@@ -37,6 +37,14 @@
                 <h3>My Transactions</h3>
                 <!-- Table instead of a list? -->
                 <ul class="stacked-list">
+                    <li ng-repeat="tx in main.transactions" class="transaction">
+                        <div class="transaction-head">
+                            <h4 class="transaction-date"> {{tx.Created}} </h4>
+                            <h4 class="transaction-name"> {{tx.Name}} </h4>
+                        </div>
+                        <span>{{tx.Amount}}</span>
+                        <p><i>{{tx.Description}}</i></p>
+                    </li>
                 </ul>
             </div>
         </div>

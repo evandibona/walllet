@@ -118,6 +118,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Sql\Models\Procedures\InsertTransaction.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\Models\Procedures\HhName.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\Models\Procedures\HhId.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\Models\Procedures\UserName.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -11,13 +11,11 @@
          {
              get
              {
-                 var w = _when.Split(' ')[0]; 
-                 return w; 
+                 DateTime w = Convert.ToDateTime(_when); 
+                 return w.ToString("D"); 
              }
              set
-             {
-                 _when = value; 
-             }
+             { _when = value; }
          }
 
          [Column("Name")]
