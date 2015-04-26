@@ -10,6 +10,8 @@ namespace Wallet.Models.Database
     public interface IBooksDataAccess
     {
         IList<HistoryAction> GetHistoricalActions(string UserName);
-        int InsertTransaction(InsertTransaction tx); 
+
+        int InsertTransaction(InsertTransaction tx);
+        IList<Transaction> GetTransactionsByUser(string username); 
     }
 }

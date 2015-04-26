@@ -40,8 +40,8 @@
                 ConfirmPassword: d['cpass'],
             })
             .then(function (d) {
-                vm.success = true; 
-                $state.go("dashboard") 
+                vm.flip('login') 
+                report("You can now log in! ")
             },
             function (errors) {
                 report(errors)
@@ -55,7 +55,6 @@
                 Password: d['pass']  
             })
             .then(function (d) {
-                vm.success = true; 
                 $state.go("dashboard") 
             },
             function (errors) {

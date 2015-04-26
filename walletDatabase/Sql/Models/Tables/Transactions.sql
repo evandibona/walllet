@@ -3,7 +3,7 @@
     [Id]			int		IDENTITY(1,1)	NOT NULL, --Identity( seed, increment ) 
     [Description]	nvarchar(144)			NULL, 
 	[CreatorId]		int						NOT NULL, 
-	[HouseholdId]	int						NOT NULL, 
+	[HouseholdId]	int						NULL, 
 	[Created]		date					NOT NULL, 
 	[PoolId]		int						NULL, 
     [Reconciled]	bit						NOT NULL, 
