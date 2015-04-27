@@ -17,15 +17,13 @@
             return authService.info.username
         }
         function createTx() {
-            console.log(vm.newTx)
             $http.post("/api/books/InsertTransaction", vm.newTx)
-                .success
+                .success(function (d) { reload() })
                 .error(error)
         }
         function loadTransactions() {
             $http.post("/api/books/GetTransactionsByUser", { user: vm.username })
                 .success(function (data) {
-                    console.log(data) 
                     vm.transactions = data
                 })
                 .error(error) 
