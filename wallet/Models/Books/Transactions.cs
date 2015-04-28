@@ -29,7 +29,7 @@
          public bool Reconciled { get; set; }
          public string Amount 
          {
-             get { return "$" + _amount.ToString("0.00"); }
+             get { return "$" + _amount.ToString("N0"); }
              set { _amount = Convert.ToDecimal(value); }
          }
          public bool Flow { get; set; }
