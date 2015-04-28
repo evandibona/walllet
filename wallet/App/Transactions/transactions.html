@@ -35,16 +35,25 @@
         <div class="pure-u-1-1 pure-u-md-1-2">
             <div id="my-transactions" class=" tile tile-sun-flower transactions">
                 <h3>My Transactions</h3>
-                <ul class="stacked-list">
-                    <li ng-repeat="tx in main.transactions" class="transaction">
-                        <div class="transaction-head">
-                            <h4 class="transaction-date"> {{tx.Created}} </h4>
-                            <h4 class="transaction-name"> {{tx.Name}} </h4>
-                        </div>
-                        <span>{{tx.Amount}}</span>
-                        <p><i>{{tx.Description}}</i></p>
-                    </li>
-                </ul>
+                <table class="pure-table pure-table-bordered transactions-table">
+                    <thead>
+                        <tr>
+                            <th>Amount</th>
+                            <th>Description</th>
+                            <th>Date Created</th>
+                            <th>Creator</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="tx in main.transactions">
+                            
+                            <td>{{tx.Amount}}</td>
+                            <td>{{tx.Description}}</td>
+                            <td>{{tx.Created}}</td>
+                            <td>{{tx.Name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

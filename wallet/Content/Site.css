@@ -87,6 +87,13 @@ ul.pure-menu-children a {
   font-size: 2.8em;
   line-height: 1.1em; }
 
+.transactions-table {
+  background: white;
+  color: #444; }
+  .transactions-table thead {
+    font-size: 0.76em;
+    text-align: center; }
+
 .transaction-head {
   display: table;
   width: 100%;
