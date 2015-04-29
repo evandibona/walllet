@@ -22,7 +22,7 @@
          public string Household { get; set; }
          public string Created 
          {
-             get { return _created.ToString("D"); }
+             get { return _created.ToString("d"); }
              set { _created = Convert.ToDateTime(value); } 
          }
          public string Pool { get; set; }
