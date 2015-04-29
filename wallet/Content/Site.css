@@ -93,6 +93,8 @@ ul.pure-menu-children a {
   .transactions-table thead {
     font-size: 0.76em;
     text-align: center; }
+  .transactions-table td {
+    padding: 0 1em; }
 
 .transaction-head {
   display: table;
