@@ -119,13 +119,19 @@
     <EmbeddedResource Include="Sql\Models\Procedures\InsertTransaction.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Models\Procedures\HhName.sql" />
+    <EmbeddedResource Include="Sql\Models\Procedures\HhById.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Models\Procedures\HhId.sql" />
+    <EmbeddedResource Include="Sql\Models\Procedures\HhByName.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Models\Procedures\UserName.sql" />
+    <EmbeddedResource Include="Sql\Models\Procedures\UserByName.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\Models\Procedures\HhByAuthor.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\Models\Procedures\HhCreate.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

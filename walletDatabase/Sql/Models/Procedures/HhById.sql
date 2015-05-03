@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [Models].[HhName] 
+﻿CREATE PROCEDURE [Models].[HhById] 
 	@id int
 AS
 

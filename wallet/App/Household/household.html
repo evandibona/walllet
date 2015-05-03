@@ -2,9 +2,19 @@
 </ng-include>
 <div class="container body-content"
      ng-init="appMain.isLanding = false"
-     ng-controller="History as main">
+     ng-controller="Household as main">
 
     <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-4">
+            <div id="real-balance" class="tile widget widget-purple">
+                <span class="widget-value"> {{main.currentHouse}}</span>
+                <span class="widget-s">My Current Household</span>
+            </div>
+            <div id="real-balance" class="tile widget widget-orange">
+                <span class="widget-value"> {{main.createdHouse}} </span>
+                <span class="widget-s"> My Household </span>
+            </div>
+        </div>
         <div class="pure-u-md-1-4">
             <div id="biggest-tx" class="tile tile-alizarin transactions">
                 <h3> Largest Expenses This Month</h3>
@@ -20,19 +30,47 @@
                 </ul>
             </div>
         </div>
-        <div class="pure-u-md-1-4">
-            <div id="real-balance" class="tile widget widget-purple">
-                <span class="widget-value"> $250 </span>
-                <span class="widget-s">Current Balance</span>
-            </div>
-            <div id="real-balance" class="tile widget widget-orange">
-                <span class="widget-value"> $145 </span>
-                <span class="widget-s"> Spent by George </span>
-            </div>
+        <div class="pure-u-1 pure-u-md-1-4">
         </div>
-        <div class="pure-u-md-1-4">
-        </div>
-        <div class="pure-u-md-1-4">
+        <div class="pure-u-1 pure-u-md-1-4">
+            <div id="my-household" class="tile tile-sun-flower">
+                <h3> Edit Household </h3>
+                <form class="pure-form pure-form-stacked tile-form" ng-submit="main.updateHouse()">
+                    <fieldset>
+                        <label for="house-name">Name</label>
+                        <input id="house-name" type="text" />
+
+                        <label for="use-this-house" class="pure-checkbox">
+                            <input id="use-this-house" type="checkbox" /> Use? 
+                        </label>
+
+                        <input type="submit" class="pure-button" />
+                    </fieldset>
+                </form>
+            </div>
+            <div id="my-invitations" class="tile tile-belize-hole">
+                <h3> Invitations </h3>
+                <ul class="stacked-list invitation-list">
+                    <li>
+                        <h3>Smith</h3>
+                        <i>Hey Joe! Here's an invitation!</i>
+                        <button class="pure-button button-green"> Accept </button>
+                        <button class="pure-button"> Rebuke </button>
+                    </li>
+                    <li>
+                        <h3>VanDruus</h3>
+                        <i>Velkommen.</i>
+                        <button class="pure-button button-blue"> Accept </button>
+                        <button class="pure-button"> Rebuke </button>
+                    </li>
+                    <li>
+                        <h3>Pollini</h3>
+                        <i>Ciao, Gio. Qui e' un invitazione</i>
+                        <button class="pure-button button-red"> Accept </button>
+                        <button class="pure-button"> Rebuke </button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

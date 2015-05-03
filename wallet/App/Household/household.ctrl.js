@@ -1,35 +1,30 @@
 ﻿(function () {
     angular
         .module("Wallet")
-        .controller("History", history)
+        .controller("Household", hhCtrl)
 
-    history.$inject = ['$http', 'authService']
+    hhCtrl.$inject = ['$http', 'authService']
 
-    function history($http, authService) {
+    function hhCtrl($http, authService) {
         var vm = this
-        vm.actions = [
-            {
-                what: 'data',
-                when: 'is currently',
-                who: 'loading...'
-            },
-        ]
+        vm.currentHouse = "BingBingBing"
+        vm.createdHouse = "DingWingPing"
+        vm.updateHouse = updateHouse 
+        reload() 
 
-        authService.refresh() 
-        var username = authService.info.username 
-        vm.nothingInteresting = $http.post('/api/books/GetActions', { "name": username }).success(loadTable).error(showError)
-
-        //////////
-        function showError(a, b, c, d) {
-            vm.actions[0] = {
-                'what': a,
-                'when': b,
-                'who': c,
-                'other': d,
-            }
+        ///////////
+        function username() {
+            authService.refresh()
+            return authService.info.username 
         }
-        function loadTable(data) {
-            vm.actions = data 
+
+        function updateHouse() {
+            $http.post("/api/books/UpdateHousehold", vm.hh)
+            reload()
+        }
+        
+        function reload() {
+            vm.myHousehold['name'] = "Ouan"
         }
     }
 })()

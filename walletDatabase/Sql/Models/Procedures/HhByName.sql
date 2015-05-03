@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [Models].[HhId] 
+﻿CREATE PROCEDURE [Models].[HhByName] 
 	@name nvarchar(30)
 AS
 

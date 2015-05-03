@@ -19,6 +19,21 @@
   font-weight: 400;
   font-size: 0.9em; }
 
+.button-xsmall {
+  font-size: 70%; }
+
+.button-red {
+  color: white;
+  background: #c0392b; }
+
+.button-blue {
+  color: white;
+  background: #2980b9; }
+
+.button-green {
+  color: white;
+  background: #16a085; }
+
 .pure-menu {
   background: #2c3e50; }
 
@@ -68,6 +83,22 @@ ul.pure-menu-children a {
   text-align: left;
   padding: 0.5em 1.5em; }
 
+.tile-form {
+  background: white;
+  color: black;
+  text-align: left;
+  padding: 0.5em 1.5em; }
+
+.tile-table {
+  width: 100%;
+  background: white;
+  color: #444; }
+  .tile-table thead {
+    font-size: 0.76em;
+    text-align: center; }
+  .tile-table td {
+    padding: 0 1em; }
+
 .stacked-list {
   list-style-type: none;
   padding: 0;
@@ -86,16 +117,6 @@ ul.pure-menu-children a {
 .transactions span {
   font-size: 2.8em;
   line-height: 1.1em; }
-
-.transactions-table {
-  width: 100%;
-  background: white;
-  color: #444; }
-  .transactions-table thead {
-    font-size: 0.76em;
-    text-align: center; }
-  .transactions-table td {
-    padding: 0 1em; }
 
 .transaction-head {
   display: table;
@@ -208,6 +229,12 @@ div#landing-header h1 {
     width: 100%; }
   #new-transaction #amount {
     width: 40%; }
+
+.invitation-list h3 {
+  display: block;
+  font-size: 1.7em; }
+.invitation-list i {
+  display: block; }
 
 /*  Universal Sitewide Styling  */
 @font-face {
