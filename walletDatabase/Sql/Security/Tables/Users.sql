@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [Security].[Users](
 [Id] [int] IDENTITY(1,1) NOT NULL,
-[HouseholdId] int NULL,
+[HouseholdId] int NULL, -- HhId or Household
 [UserName] [nvarchar](128) NOT NULL,
 [Name] [nvarchar](128) NULL,
 [Email] [nvarchar](128) NULL,

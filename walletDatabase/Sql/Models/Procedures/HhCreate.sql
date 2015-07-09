@@ -1,19 +1,16 @@
 ﻿CREATE PROCEDURE [Models].[HhCreate] (
-	@Name nvarchar(30),
-	@CreatorName nvarchar(30) 
+	@Name	nvarchar(30),
+	@UserId int
 )
 AS
 
-DECLARE @CreatorId int 
-EXEC Models.UserByName @username = @CreatorName, @UserId = @CreatorId OUTPUT 
-
 DECLARE @T TABLE(
-[Id] int)
+	[Id] int)
 
 INSERT INTO [Models].[Households]
 (
 	[Name],
-	[CreatorId]
+	[Head]
 )
 OUTPUT
 	Inserted.[Id]
@@ -21,6 +18,6 @@ INTO @T
 VALUES
 (
 	@Name,
-	@CreatorId
+	@UserId
 )
 SELECT * FROM @T

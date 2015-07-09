@@ -7,9 +7,7 @@
 
     function hhCtrl($http, authService) {
         var vm = this
-        vm.currentHouse = "BingBingBing"
-        vm.createdHouse = "DingWingPing"
-        vm.updateHouse = updateHouse 
+        vm.houseCreateUpdate = HouseCreateOrUpdate
         reload() 
 
         ///////////
@@ -18,13 +16,19 @@
             return authService.info.username 
         }
 
-        function updateHouse() {
-            $http.post("/api/books/UpdateHousehold", vm.hh)
+        function HouseCreateOrUpdate() {
+            $http.post("/api/books/HouseCreateOrUpdate", vm.myHouse)
             reload()
         }
-        
+
         function reload() {
-            vm.myHousehold['name'] = "Ouan"
+            vm.myHouse = {} 
+            vm.myHouse['Creator'] = username() 
+            $http.post("/api/books/HouseOfAuthor", { "name": vm.myHouse['Creator'] })
+            .success(function(household) {
+                vm.myHouse = household
+                console.log(vm.myHouse) 
+            }) 
         }
     }
 })()
