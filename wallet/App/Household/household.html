@@ -35,13 +35,13 @@
         <div class="pure-u-1 pure-u-md-1-4">
             <div id="my-household" class="tile tile-sun-flower">
                 <h3> Edit Household </h3>
-                <form class="pure-form pure-form-stacked tile-form" ng-submit="main.updateHouse()">
+                <form class="pure-form pure-form-stacked tile-form" ng-submit="main.houseCreateUpdate()">
                     <fieldset>
                         <label for="house-name">Name</label>
-                        <input id="house-name" type="text" />
+                        <input id="house-name" type="text" ng-model="main.myHouse['Name']"/>
 
                         <label for="use-this-house" class="pure-checkbox">
-                            <input id="use-this-house" type="checkbox" /> Use? 
+                            <input id="use-this-house" type="checkbox" ng-model="main.myHouse['InUse']"/> Use? 
                         </label>
 
                         <input type="submit" class="pure-button" />

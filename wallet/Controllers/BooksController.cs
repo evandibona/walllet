@@ -58,5 +58,40 @@ namespace Wallet.Controllers
             var abc = access.GetTransactionsByUser(user["user"]); 
             return abc; 
         }
+
+        // POST api/books/HouseOfAuthor
+        [HttpPost]
+        [Route("HouseOfAuthor")] 
+        public MyHouse HhOfAuthor([FromBody] Dictionary<string,string> nm)
+        {
+            string name = nm["name"]; 
+            Household createdHouse = access.HhOfAuthor(name);
+            Household userHouse = access.HhOfUser(name);
+
+            MyHouse myHouse = new MyHouse() { Author = name, InUse = false, Name = createdHouse.Name }; 
+            if (userHouse != null)
+            {
+                myHouse.InUse = true; 
+            }
+            return myHouse; 
+        }
+
+        // POST api/books/HouseCreateOrUpdate
+        [HttpPost]
+        [Route("HouseCreateOrUpdate")] 
+        public bool HhCreateUpdate([FromBody] MyHouse hh)
+        {
+            var createdHouse = access.HhOfAuthor(hh.Author);
+            var subHouse = access.HhOfUser(hh.Author); 
+
+            if (hh.InUse)
+            {
+                // SET Security.User.Household = HhId
+            }
+
+            // ALWAYS HhUpdate HhId, Name, CreatorId
+
+            return true; 
+        }
     }
 }

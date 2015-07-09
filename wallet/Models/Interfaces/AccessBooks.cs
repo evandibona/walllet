@@ -14,7 +14,10 @@ namespace Wallet.Models.Database
         int InsertTransaction(InsertTransaction tx);
         IList<Transaction> GetTransactionsByUser(string username);
 
-        int HhCreate(Household hh); 
-        int HhUpdate(Household hh); 
+        int UserByName(string username); 
+
+        Household HhOfAuthor(string username);
+        Household HhOfUser(string username); 
+        int HhCreate(string Name, string CreatorName); 
     }
 }
