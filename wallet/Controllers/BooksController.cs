@@ -59,21 +59,21 @@ namespace Wallet.Controllers
             return abc; 
         }
 
-        // POST api/books/HouseOfAuthor
+        // POST api/books/HouseOfUser
         [HttpPost]
-        [Route("HouseOfAuthor")] 
-        public MyHouse HhOfAuthor([FromBody] Dictionary<string,string> nm)
+        [Route("HouseOfUser")] 
+        public string HhOfUser([FromBody] Dictionary<string,string> name)
         {
-            string name = nm["name"]; 
-            Household createdHouse = access.HhOfAuthor(name);
-            Household userHouse = access.HhOfUser(name);
-
-            MyHouse myHouse = new MyHouse() { Author = name, InUse = false, Name = createdHouse.Name }; 
-            if (userHouse != null)
+            int userId = access.UserByName(name["name"]); 
+            int houseId = access.HhOfUser(userId);
+            if (houseId == 0)
             {
-                myHouse.InUse = true; 
+                return "";
             }
-            return myHouse; 
+            else
+            {
+                return access.HhById(houseId);
+            } 
         }
 
         // POST api/books/HouseCreateOrUpdate
@@ -81,8 +81,8 @@ namespace Wallet.Controllers
         [Route("HouseCreateOrUpdate")] 
         public bool HhCreateUpdate([FromBody] MyHouse hh)
         {
-            var createdHouse = access.HhOfAuthor(hh.Author);
-            var subHouse = access.HhOfUser(hh.Author); 
+            //var createdHouse = access.HhOfAuthor(hh.Author);
+            //var subHouse = access.HhOfUser(hh.Author); 
 
             if (hh.InUse)
             {

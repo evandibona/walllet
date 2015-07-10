@@ -1,7 +1,6 @@
 ﻿CREATE PROCEDURE [Models].[UserByName] 
-	@username nvarchar(30), 
-	@UserId int OUTPUT 
+	@Username nvarchar(30) 
 AS
 
-SELECT @UserId = Id FROM Security.Users
-WHERE UserName = @username
+SELECT Id FROM Security.Users
+WHERE Username = @Username

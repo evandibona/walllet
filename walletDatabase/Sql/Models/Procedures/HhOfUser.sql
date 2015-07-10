@@ -1,13 +1,7 @@
 ﻿CREATE PROCEDURE [Models].[HhOfUser] 
-	@UserName nvarchar(30) 
+	@UserId		int 
 AS
 
-DECLARE @HouseId int
-
-SET @HouseId = ( 
-		SELECT HouseholdId From [Security].Users 
-			WHERE UserName = @UserName 
-) 
-
-SELECT Name From Models.Households
-	WHERE Id = @HouseId
+SELECT HouseholdId
+	FROM [Security].[Users]
+	WHERE Id=@UserId

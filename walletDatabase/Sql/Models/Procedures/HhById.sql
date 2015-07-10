@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [Models].[HhById] 
-	@id int
+	@Id int
 AS
 
 SELECT Name FROM Models.Households
-WHERE Id = @id
+WHERE Id = @Id

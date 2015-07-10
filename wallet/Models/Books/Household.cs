@@ -6,7 +6,9 @@
      public class Household
      {
          public string Name { get; set; }
-         public string Creator { get; set; }
+         public int Id { get; set; }
+         public string HeadName { get; set; }
+         public int Head { get; set; }
      }
 
      public class MyHouse

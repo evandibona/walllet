@@ -16,8 +16,7 @@ namespace Wallet.Models.Database
 
         int UserByName(string username); 
 
-        Household HhOfAuthor(string username);
-        Household HhOfUser(string username); 
-        int HhCreate(string Name, string CreatorName); 
+        int HhOfUser(int userId); 
+        string HhById(int Id); 
     }
 }

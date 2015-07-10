@@ -142,15 +142,15 @@ ul.pure-menu-children a {
 
 .widget-value {
   font-weight: 500;
-  font-size: 3.5em;
-  padding-top: 0.2em;
+  font-size: 2em;
+  padding: 0.2em;
   line-height: 1.1em;
   color: #444; }
 
 .widget-s {
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 0.9em; }
+  font-size: 0.8em; }
 
 .widget-orange {
   border-top: 5px solid #e67e22;

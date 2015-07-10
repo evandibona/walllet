@@ -128,9 +128,6 @@
     <EmbeddedResource Include="Sql\Models\Procedures\UserByName.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Models\Procedures\HhOfAuthor.sql" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Sql\Models\Procedures\HhCreate.sql" />
   </ItemGroup>
   <ItemGroup>
