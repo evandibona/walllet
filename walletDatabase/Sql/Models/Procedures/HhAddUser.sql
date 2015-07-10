@@ -4,8 +4,6 @@
 )
 AS
 
--- Set the user's Household property to the House. --
-
 DECLARE @T TABLE( [Id] int )
 
 UPDATE [Security].[Users] SET
