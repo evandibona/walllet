@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [Models].[HhAddUser] (
-	@HhId nvarchar(30), 
+	@HhId int, 
 	@UserId int 
 )
 AS

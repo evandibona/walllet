@@ -16,7 +16,13 @@ namespace Wallet.Models.Database
 
         int UserByName(string username); 
 
+        // Household //
         int HhOfUser(int userId); 
-        string HhById(int Id); 
+        string HhById(int Id);
+        int HhDeclare(string Name, int UserId);
+        int InvitationRespond(int InvitationId, bool Action);
+        int HhRevokeUser(int UserId); 
+        int HhAddUser(int HhId, int UserId);
+        List<User> ListUsers(); 
     }
 }
