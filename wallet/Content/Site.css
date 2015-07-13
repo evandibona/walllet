@@ -68,8 +68,15 @@ ul.pure-menu-children a {
   .tile input[type="text"] {
     width: 100%; }
 
+.tile-turquoise {
+  background: #1abc9c; }
+  .tile-turquoise .pure-button-primary {
+    background: #1abc9c; }
+
 .tile-green-sea {
   background: #16a085; }
+  .tile-green-sea .pure-button-primary {
+    background: #16a085; }
 
 .tile-sun-flower {
   background: #f1c40f; }

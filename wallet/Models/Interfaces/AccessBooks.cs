@@ -22,6 +22,7 @@ namespace Wallet.Models.Database
         string HhById(int Id);
         int HhDeclare(string Name, int UserId);
         int InvitationRespond(int InvitationId, bool Action);
+        int InsertInvitation(int From, int Recipient, int House);
         int HhRevokeUser(int UserId); 
         int HhAddUser(int HhId, int UserId);
         List<User> ListUsers(); 

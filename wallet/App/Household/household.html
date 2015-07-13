@@ -47,6 +47,19 @@
                     </fieldset>
                 </form>
             </div>
+            <div id="my-invitations" class="tile tile-turquoise">
+                <h3> Create An Invitation </h3>
+                <form class="pure-form pure-form-stacked tile-form"
+                      ng-submit="main.sendInvite()">
+                    <fieldset>
+                        <label for="user-search">Username</label>
+                        <input id="user-search" type="text" ng-model="main.newInvite" />
+                        <!-- Auto complete, search as typing-->
+
+                        <input type="submit" class="pure-button pure-button-primary" value="Send Invite">
+                    </fieldset>
+                </form>
+            </div> 
         </div>
         <div class="pure-u-1 pure-u-md-1-4">
             <div id="my-invitations" class="tile tile-belize-hole">

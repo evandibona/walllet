@@ -8,6 +8,7 @@
     function hhCtrl($http, authService) {
         var vm = this
         vm.declareHouse = declareHouse
+        vm.sendInvite = createInvitation
         reload() 
 
         /* 
@@ -27,6 +28,12 @@
             $http.post("/api/books/DeclareHouse",
                 { "Username": username(), "Name": vm.declaredHouse })
                 .success(reload) 
+        }
+
+        function createInvitation() {
+            $http.post("/api/books/CreateInvitation", 
+                { "From": username(), "To": vm.newInvite })
+                .sucess(reload) 
         }
 
         function reload() {

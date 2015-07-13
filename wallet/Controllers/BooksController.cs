@@ -89,5 +89,16 @@ namespace Wallet.Controllers
             int userId = access.UserByName(inparams["Username"]); 
             return access.HhDeclare(inparams["Name"], userId);
         }
+
+        // POST api/books/CreateInvitation
+        [HttpPost]
+        [Route("CreateInvitation")] 
+        public int CreateInvitation([FromBody] Dictionary<string, string> invite)
+        {
+            var headId = access.UserByName(invite["From"]);
+            var userId = access.UserByName(invite["To"]);
+            var houseId = access.HhOfUser(headId); 
+            return access.InsertInvitation(headId, userId, houseId); 
+        }
     }
 }
