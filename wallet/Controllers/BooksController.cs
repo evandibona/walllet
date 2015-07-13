@@ -100,5 +100,16 @@ namespace Wallet.Controllers
             var houseId = access.HhOfUser(headId); 
             return access.InsertInvitation(headId, userId, houseId); 
         }
+
+        // POST api/books/ListSentInvitations
+        [HttpPost]
+        [Route("ListSentInvitations")]
+        public List<Invitation> ListSentInvites([FromBody] Dictionary<string, string> user)
+        {
+            int headId = access.UserByName(user["User"]);
+            int houseId = access.HhOfUser(headId);
+            List<Invitation> invites = access.InvitationsOfHouse(houseId); 
+            return invites; 
+        }
     }
 }

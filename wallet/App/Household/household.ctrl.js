@@ -33,12 +33,14 @@
         function createInvitation() {
             $http.post("/api/books/CreateInvitation", 
                 { "From": username(), "To": vm.newInvite })
-                .sucess(reload) 
+                .success(reload) 
         }
 
         function reload() {
             // Needed variables. 
             var name = { "name": username()}
+
+            vm.newInvite = ""
 
             // Refresh the currently assigned house. 
             $http.post("/api/books/AssignedHouse", name )
@@ -55,6 +57,13 @@
                     if (household.length != 0) {
                         vm.declaredHouse = household 
                     }
+                })
+
+            // Refresh list of sent invitations. 
+            $http.post("/api/books/ListSentInvitations", { "User": username() })
+                .success(function (invitations) {
+                    vm.sentInvites = invitations
+                    console.log(invitations)
                 })
         }
     }

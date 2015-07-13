@@ -178,10 +178,6 @@ ul.pure-menu-children a {
   border-top: 7px solid #e74c3c;
   color: #e74c3c; }
 
-.pure-button-belize-hole {
-  background: #2980b9;
-  color: white; }
-
 body.landing {
   background: #2980b9;
   color: white; }
@@ -251,6 +247,9 @@ div#landing-header h1 {
   font-size: 1.7em; }
 .invitation-list i {
   display: block; }
+
+.invitation-item .pure-button {
+  float: right; }
 
 /*  Universal Sitewide Styling  */
 @font-face {

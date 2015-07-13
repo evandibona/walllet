@@ -21,10 +21,15 @@ namespace Wallet.Models.Database
         int HhByHead(int userId); 
         string HhById(int Id);
         int HhDeclare(string Name, int UserId);
-        int InvitationRespond(int InvitationId, bool Action);
-        int InsertInvitation(int From, int Recipient, int House);
         int HhRevokeUser(int UserId); 
         int HhAddUser(int HhId, int UserId);
+
+        // Invitation // 
+        int InvitationRespond(int InvitationId, bool Action);
+        int InsertInvitation(int From, int Recipient, int House);
+
+        // Lists
         List<User> ListUsers(); 
+        List<Invitation> InvitationsOfHouse(int House); 
     }
 }
