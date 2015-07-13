@@ -248,7 +248,9 @@ div#landing-header h1 {
 .invitation-list i {
   display: block; }
 
-.invitation-item .pure-button {
+.invitation-item form {
+  text-align: left; }
+.invitation-item input {
   float: right; }
 
 /*  Universal Sitewide Styling  */

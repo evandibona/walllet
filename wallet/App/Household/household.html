@@ -75,8 +75,10 @@
                 <h3> Sent Invitations </h3>
                 <ul class="stacked-list sent-invitation-list">
                     <li class="invitation-item" ng-repeat="invite in main.sentInvites">
-                        <h3>{{invite.Username}}</h3>
-                        <button class="pure-button button-red"> Delete </button>
+                        <form class="pure-form" ng-submit="main.deleteInvite(invite.Id)">
+                                <h3>{{invite.Username}}</h3>
+                                <input type="submit" class="pure-button button-red" value="Delete" />
+                        </form>
                     </li>
                 </ul>
             </div>

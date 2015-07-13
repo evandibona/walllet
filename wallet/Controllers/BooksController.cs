@@ -111,5 +111,13 @@ namespace Wallet.Controllers
             List<Invitation> invites = access.InvitationsOfHouse(houseId); 
             return invites; 
         }
+
+        // POST api/books/DeleteInvitation
+        [HttpPost]
+        [Route("DeleteInvitation")]
+        public int DeleteInvite([FromBody] Dictionary<string, int> choice)
+        {
+            return access.InvitationRespond(choice["Id"], false); 
+        }
     }
 }

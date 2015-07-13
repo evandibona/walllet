@@ -9,6 +9,7 @@
         var vm = this
         vm.declareHouse = declareHouse
         vm.sendInvite = createInvitation
+        vm.deleteInvite = deleteInvitation
         reload() 
 
         /* 
@@ -33,6 +34,11 @@
         function createInvitation() {
             $http.post("/api/books/CreateInvitation", 
                 { "From": username(), "To": vm.newInvite })
+                .success(reload) 
+        }
+
+        function deleteInvitation(id) {
+            $http.post("/api/books/DeleteInvitation", { "Id": id })
                 .success(reload) 
         }
 
@@ -63,7 +69,6 @@
             $http.post("/api/books/ListSentInvitations", { "User": username() })
                 .success(function (invitations) {
                     vm.sentInvites = invitations
-                    console.log(invitations)
                 })
         }
     }

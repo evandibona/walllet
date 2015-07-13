@@ -11,5 +11,5 @@ ALTER TABLE [Models].[Invitations]
 	ADD CONSTRAINT [PK_Models.Invitations] PRIMARY KEY CLUSTERED ( [Id] ASC )
 GO
 
-AUTOPROC Delete,Insert [Models].[Invitations] 
+AUTOPROC Insert [Models].[Invitations] 
 GO

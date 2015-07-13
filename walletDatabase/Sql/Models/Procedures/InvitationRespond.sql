@@ -12,4 +12,7 @@ DECLARE @HhId int, @UserId int
 IF @Action = 1 
 	EXEC Models.HhAddUser @HhId, @UserId
 
-EXEC Models.DeleteInvitation @Id 
+DELETE FROM [Models].[Invitations] WHERE
+	[Id]=@Id
+
+SELECT @Id

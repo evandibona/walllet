@@ -25,7 +25,7 @@ namespace Wallet.Models.Database
         int HhAddUser(int HhId, int UserId);
 
         // Invitation // 
-        int InvitationRespond(int InvitationId, bool Action);
+        int InvitationRespond(int Id, bool Action);
         int InsertInvitation(int From, int Recipient, int House);
 
         // Lists
