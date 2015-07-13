@@ -7,24 +7,48 @@
 
     function hhCtrl($http, authService) {
         var vm = this
+        vm.declareHouse = declareHouse
         reload() 
 
+        /* 
+        * KEY FUNCTIONS
+        *   List members of subscribed list. ( + head )
+        *   Send Invitations
+        *   Receive invitations
+        *   Declared House
+        */
         ///////////
         function username() {
             authService.refresh()
             return authService.info.username 
         }
 
+        function declareHouse() {
+            $http.post("/api/books/DeclareHouse",
+                { "Username": username(), "Name": vm.declaredHouse })
+                .success(reload) 
+        }
+
         function reload() {
+            // Needed variables. 
             var name = { "name": username()}
-            $http.post("/api/books/HouseOfUser", name )
-            .success(function(household) {
-                vm.myHouse = "unassigned"
-                if (household.length != 0) {
-                    vm.myHouse = household
-                }
-                console.log(vm.myHouse) 
-            }) 
+
+            // Refresh the currently assigned house. 
+            $http.post("/api/books/AssignedHouse", name )
+                .success(function (household) {
+                    vm.assignedHouse = "null"
+                    if (household.length != 0) {
+                        vm.assignedHouse = household 
+                    }
+                })
+
+            // Refresh the user's declared house. 
+            $http.post("/api/books/DeclaredHouse", name)
+                .success(function (household) {
+                    if (household.length != 0) {
+                        vm.declaredHouse = household 
+                    }
+                })
         }
     }
 })()

@@ -26,6 +26,10 @@
   color: white;
   background: #c0392b; }
 
+.button-carrot {
+  color: white;
+  background: #e67e22; }
+
 .button-blue {
   color: white;
   background: #2980b9; }
@@ -67,14 +71,17 @@ ul.pure-menu-children a {
 .tile-green-sea {
   background: #16a085; }
 
-.tile-belize-hole {
-  background: #2980b9; }
-
 .tile-sun-flower {
   background: #f1c40f; }
 
 .tile-wisteria {
   background: #8e44ad; }
+
+.tile-carrot {
+  background: #e67e22; }
+
+.tile-belize-hole {
+  background: #2980b9; }
 
 .tile-alizarin {
   background: #e74c3c; }

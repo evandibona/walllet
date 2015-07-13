@@ -6,7 +6,8 @@ AS
 
 DECLARE @houses int, @Id int
 SET @houses = 
-	(	SELECT count(*)
+	(	
+		SELECT count(*)
 		FROM Models.Households
 		WHERE Head = @UserId
 	)

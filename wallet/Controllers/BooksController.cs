@@ -59,39 +59,35 @@ namespace Wallet.Controllers
             return abc; 
         }
 
-        // POST api/books/HouseOfUser
+        // POST api/books/AssignedHouse
         [HttpPost]
-        [Route("HouseOfUser")] 
-        public string HhOfUser([FromBody] Dictionary<string,string> name)
+        [Route("AssignedHouse")] 
+        public string AssignedHouse([FromBody] Dictionary<string,string> name)
         {
             int userId = access.UserByName(name["name"]); 
             int houseId = access.HhOfUser(userId);
-            if (houseId == 0)
-            {
-                return "";
-            }
-            else
-            {
-                return access.HhById(houseId);
-            } 
+            if (houseId == 0) { return ""; }
+            else { return access.HhById(houseId); } 
         }
 
-        // POST api/books/HouseCreateOrUpdate
+        // POST api/books/DeclaredHouse
         [HttpPost]
-        [Route("HouseCreateOrUpdate")] 
-        public bool HhCreateUpdate([FromBody] MyHouse hh)
+        [Route("DeclaredHouse")] 
+        public string DeclaredHouse([FromBody] Dictionary<string,string> name)
         {
-            //var createdHouse = access.HhOfAuthor(hh.Author);
-            //var subHouse = access.HhOfUser(hh.Author); 
+            int userId = access.UserByName(name["name"]); 
+            int houseId = access.HhByHead(userId);
+            if (houseId == 0) { return ""; }
+            else { return access.HhById(houseId); } 
+        }
 
-            if (hh.InUse)
-            {
-                // SET Security.User.Household = HhId
-            }
-
-            // ALWAYS HhUpdate HhId, Name, CreatorId
-
-            return true; 
+        // POST api/books/DeclareHouse
+        [HttpPost]
+        [Route("DeclareHouse")] 
+        public int DeclareHouse([FromBody] Dictionary<string, string> inparams)
+        {
+            int userId = access.UserByName(inparams["Username"]); 
+            return access.HhDeclare(inparams["Name"], userId);
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Wallet.Models.Database
 
         // Household //
         int HhOfUser(int userId); 
+        int HhByHead(int userId); 
         string HhById(int Id);
         int HhDeclare(string Name, int UserId);
         int InvitationRespond(int InvitationId, bool Action);
