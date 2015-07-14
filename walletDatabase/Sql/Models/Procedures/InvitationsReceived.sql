@@ -5,6 +5,6 @@ AS
 
 SELECT Models.Invitations.Id, Username, Models.Households.Name
 	FROM Models.Invitations
-	JOIN Security.Users ON Recipient = Security.Users.Id
+	JOIN Security.Users ON [From] = Security.Users.Id
 	JOIN Models.Households ON Models.Invitations.House = Models.Households.Id
-	WHERE Security.Users.Id = @UserId 
+	WHERE Recipient = @UserId 
