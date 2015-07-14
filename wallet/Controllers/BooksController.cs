@@ -97,7 +97,7 @@ namespace Wallet.Controllers
         {
             var headId = access.UserByName(invite["From"]);
             var userId = access.UserByName(invite["To"]);
-            var houseId = access.HhOfUser(headId);
+            var houseId = access.HhByHead(headId);
             if (houseId != 0)
             {
                 return access.InsertInvitation(headId, userId, houseId); 

@@ -81,6 +81,7 @@
             $http.post("/api/books/ListReceivedInvitations", { "User": username() })
                 .success(function (invitations) {
                     vm.receivedInvites = invitations
+                    console.log(invitations)
                 })
         }
     }
