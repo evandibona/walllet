@@ -70,6 +70,12 @@
                 .success(function (invitations) {
                     vm.sentInvites = invitations
                 })
+
+            // Refresh list of received invitations. 
+            $http.post("/api/books/ListReceivedInvitations", { "User": username() })
+                .success(function (invitations) {
+                    vm.receivedInvites = invitations
+                })
         }
     }
 })()

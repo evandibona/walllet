@@ -97,8 +97,12 @@ namespace Wallet.Controllers
         {
             var headId = access.UserByName(invite["From"]);
             var userId = access.UserByName(invite["To"]);
-            var houseId = access.HhOfUser(headId); 
-            return access.InsertInvitation(headId, userId, houseId); 
+            var houseId = access.HhOfUser(headId);
+            if (houseId != 0)
+            {
+                return access.InsertInvitation(headId, userId, houseId); 
+            }
+            return 0; 
         }
 
         // POST api/books/ListSentInvitations
@@ -108,8 +112,16 @@ namespace Wallet.Controllers
         {
             int headId = access.UserByName(user["User"]);
             int houseId = access.HhOfUser(headId);
-            List<Invitation> invites = access.InvitationsOfHouse(houseId); 
-            return invites; 
+            return access.InvitationsOfHouse(houseId); 
+        }
+
+        // POST api/books/ListReceivedInvitations
+        [HttpPost]
+        [Route("ListReceivedInvitations")]
+        public List<Invitation> ListReceivedInvites([FromBody] Dictionary<string, string> user)
+        {
+            int userId = access.UserByName(user["User"]);
+            return access.InvitationsReceived(userId); 
         }
 
         // POST api/books/DeleteInvitation

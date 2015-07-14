@@ -5,27 +5,37 @@
      ng-controller="Household as main">
 
     <div class="pure-g">
-        <div class="pure-u-1 pure-u-md-1-4">
-            <div class="tile tile-alizarin">
+        <div class="pure-u-1 pure-u-md-1-2">
+            <div class="tile tile-wisteria">
                 <h1> Member Stuff </h1>
             </div>
+        </div> 
+        <div class="pure-u-1 pure-u-md-1-2">
+            <div class="tile tile-carrot">
+                <h1> Household Head Stuff </h1>
+            </div>
+        </div> 
+    </div> 
+    <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-4">
             <div id="real-balance" class="tile widget widget-purple">
                 <span class="widget-value"> {{main.assignedHouse}} </span>
                 <span class="widget-s">My Current Household</span>
             </div>
-            <div id="my-invitations" class="tile tile-belize-hole">
-                <h3> Invitations </h3>
-                <ul class="stacked-list invitation-list">
-                    <li>
-                        <h3>Smith</h3>
-                        <i>Hey Joe! Here's an invitation!</i>
-                        <button class="pure-button button-blue"> Accept </button>
-                        <button class="pure-button button-red"> Rebuke </button>
+        </div>
+        <div class="pure-u-md-1-4">
+            <div id="received-invitations" class="tile tile-wisteria">
+                <h3> Received Invitations </h3>
+                <ul class="stacked-list received-invitation-list">
+                    <li class="invitation-item" ng-repeat="invite in main.receivedInvites">
+                        <form class="pure-form" ng-submit="main.respondToInvite(invite.Id)">
+                                <h3>{{invite.Username}}</h3>
+                                <input type="submit" class="pure-button button-blue" value="Accept" />
+                                <input type="submit" class="pure-button button-red" value="Delete" />
+                        </form>
                     </li>
                 </ul>
             </div>
-        </div>
-        <div class="pure-u-md-1-4">
             <!--
             <div id="biggest-tx" class="tile tile-alizarin transactions">
                 <h3> Largest Expenses This Month</h3>
@@ -43,9 +53,6 @@
             -->
         </div>
         <div class="pure-u-1 pure-u-md-1-4">
-            <div class="tile tile-sun-flower">
-                <h1> Household Head Stuff </h1>
-            </div>
             <div id="my-household" class="tile tile-carrot">
                 <h3> Edit Household </h3>
                 <form class="pure-form pure-form-stacked tile-form"
@@ -58,7 +65,7 @@
                     </fieldset>
                 </form>
             </div>
-            <div class="tile tile-turquoise">
+            <div class="tile tile-carrot">
                 <h3> Create An Invitation </h3>
                 <form class="pure-form pure-form-stacked tile-form"
                       ng-submit="main.sendInvite()">
@@ -71,7 +78,9 @@
                     </fieldset>
                 </form>
             </div> 
-            <div id="sent-invitations" class="tile tile-green-sea">
+        </div>
+        <div class="pure-u-1 pure-u-md-1-4">
+            <div id="sent-invitations" class="tile tile-carrot">
                 <h3> Sent Invitations </h3>
                 <ul class="stacked-list sent-invitation-list">
                     <li class="invitation-item" ng-repeat="invite in main.sentInvites">
@@ -82,8 +91,6 @@
                     </li>
                 </ul>
             </div>
-        </div>
-        <div class="pure-u-1 pure-u-md-1-4">
         </div>
     </div>
 </div>

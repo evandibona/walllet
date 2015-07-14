@@ -80,18 +80,28 @@ ul.pure-menu-children a {
 
 .tile-sun-flower {
   background: #f1c40f; }
+  .tile-sun-flower .pure-button-primary {
+    background: #f1c40f; }
 
 .tile-wisteria {
   background: #8e44ad; }
+  .tile-wisteria .pure-button-primary {
+    background: #8e44ad; }
 
 .tile-carrot {
   background: #e67e22; }
+  .tile-carrot .pure-button-primary {
+    background: #e67e22; }
 
 .tile-belize-hole {
   background: #2980b9; }
+  .tile-belize-hole .pure-button-primary {
+    background: #2980b9; }
 
 .tile-alizarin {
   background: #e74c3c; }
+  .tile-alizarin .pure-button-primary {
+    background: #e74c3c; }
 
 .tile-body {
   background: white;
@@ -251,7 +261,8 @@ div#landing-header h1 {
 .invitation-item form {
   text-align: left; }
 .invitation-item input {
-  float: right; }
+  float: right;
+  margin-left: 1em; }
 
 /*  Universal Sitewide Styling  */
 @font-face {
