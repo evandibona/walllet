@@ -57,10 +57,19 @@ ul.pure-menu-children a {
   color: white;
   background: #e74c3c; }
 
+.pure-menu-link:focus {
+  background: #e67e22; }
+
 .pure-menu-item.important {
   background: #8e44ad; }
   .pure-menu-item.important:hover {
     background: #9b59b6; }
+
+.menu-segment-a {
+  text-align: left; }
+
+.menu-segment-b {
+  text-align: right; }
 
 .tile {
   margin: 10px 5px;
