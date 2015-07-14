@@ -30,8 +30,9 @@ namespace Wallet.Models.Database
 
         // Lists
         List<User> ListUsers(); 
+        List<User> ListUsersOfHh(int HouseId); 
         List<Invitation> InvitationsOfHouse(int House); 
         List<Invitation> InvitationsReceived(int UserId); 
-        List<Invitation> InvitationsSent(int UserId); 
+        List<Invitation> InvitationsSent(int UserId);
     }
 }

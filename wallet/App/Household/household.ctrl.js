@@ -61,7 +61,7 @@
                     if (household.length != 0) {
                         vm.assignedHouse = household 
                     }
-                })
+            })
 
             // Refresh the user's declared house. 
             $http.post("/api/books/DeclaredHouse", name)
@@ -69,20 +69,27 @@
                     if (household.length != 0) {
                         vm.declaredHouse = household 
                     }
-                })
+            })
 
             // Refresh list of sent invitations. 
-            $http.post("/api/books/ListSentInvitations", { "User": username() })
+            $http.post("/api/books/ListSentInvitations", { "user": username() })
                 .success(function (invitations) {
                     vm.sentInvites = invitations
-                })
+            })
 
             // Refresh list of received invitations. 
-            $http.post("/api/books/ListReceivedInvitations", { "User": username() })
+            $http.post("/api/books/ListReceivedInvitations", { "user": username() })
                 .success(function (invitations) {
                     vm.receivedInvites = invitations
-                    console.log(invitations)
-                })
+            })
+
+            // Refresh list of household members. 
+            $http.post("/api/books/ListMembersByHead", { "user": username() })
+                .success(function (users) {
+                    vm.myMembers = users
+                    console.log(users)
+            })
+
         }
     }
 })()

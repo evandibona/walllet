@@ -128,7 +128,7 @@ namespace Wallet.Controllers
         [Route("ListSentInvitations")]
         public IList<Invitation> ListSentInvites([FromBody] Dictionary<string, string> user)
         {
-            int headId = access.UserByName(user["User"]);
+            int headId = access.UserByName(user["user"]);
             return access.InvitationsSent(headId); 
         }
 
@@ -137,7 +137,7 @@ namespace Wallet.Controllers
         [Route("ListReceivedInvitations")]
         public IList<Invitation> ListReceivedInvites([FromBody] Dictionary<string, string> user)
         {
-            int userId = access.UserByName(user["User"]);
+            int userId = access.UserByName(user["user"]);
             return access.InvitationsReceived(userId); 
         }
 
@@ -160,6 +160,16 @@ namespace Wallet.Controllers
                 response = true; 
             }
             return access.InvitationRespond(a["id"], response); 
+        }
+
+        // POST api/books/ListMembersByHead
+        [HttpPost]
+        [Route("ListMembersByHead")]
+        public IList<User> ListMembersByHead([FromBody] Dictionary<string, string> u)
+        {
+            int headId = access.UserByName(u["user"]); 
+            int houseId = access.HhByHead(headId);
+            return access.ListUsersOfHh(houseId); 
         }
     }
 }

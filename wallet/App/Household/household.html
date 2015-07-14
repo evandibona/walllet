@@ -74,6 +74,16 @@
                 </form>
             </div>
             <div class="tile tile-carrot">
+                <h3> Household Members </h3>
+                <ul class="stacked-list sent-invitation-list">
+                    <li class="invitation-item" ng-repeat="invite in main.myMembers">
+                        <p> {{invite.Name }} &bull; {{invite.Username}} </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-4">
+            <div class="tile tile-carrot">
                 <h3> Create An Invitation </h3>
                 <form class="pure-form pure-form-stacked tile-form"
                       ng-submit="main.sendInvite()">
@@ -86,8 +96,6 @@
                     </fieldset>
                 </form>
             </div> 
-        </div>
-        <div class="pure-u-1 pure-u-md-1-4">
             <div id="sent-invitations" class="tile tile-carrot">
                 <h3> Sent Invitations </h3>
                 <ul class="stacked-list sent-invitation-list">

@@ -108,6 +108,11 @@ ul.pure-menu-children a {
   .tile-carrot .pure-button-primary {
     background: #e67e22; }
 
+.tile-pumpkin {
+  background: #d35400; }
+  .tile-pumpkin .pure-button-primary {
+    background: #d35400; }
+
 .tile-belize-hole {
   background: #2980b9; }
   .tile-belize-hole .pure-button-primary {
