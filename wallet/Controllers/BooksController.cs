@@ -21,6 +21,24 @@ using Owin;
 
 namespace Wallet.Controllers
 {
+    [RoutePrefix("api/info")]
+    public class InfoController : ApiController
+    {
+        private IBooksDataAccess access; 
+        public InfoController()
+        {
+            access = HttpContext.Current.GetOwinContext().Get<SqlConnection>()
+                .As<IBooksDataAccess>(); 
+        }
+
+        // POST api/info/ListUsers
+        [HttpGet]
+        [Route("ListUsers")] 
+        public IList<User> ListUsers()
+        {
+            return access.ListUsers(); 
+        }
+    }
     [Authorize]
     [RoutePrefix("api/books")]
     public class BooksController : ApiController
@@ -76,7 +94,7 @@ namespace Wallet.Controllers
         public string DeclaredHouse([FromBody] Dictionary<string,string> name)
         {
             int userId = access.UserByName(name["name"]); 
-            int houseId = access.HhByHead(userId);
+            var houseId = access.HhByHead(userId);
             if (houseId == 0) { return ""; }
             else { return access.HhById(houseId); } 
         }
@@ -108,7 +126,7 @@ namespace Wallet.Controllers
         // POST api/books/ListSentInvitations
         [HttpPost]
         [Route("ListSentInvitations")]
-        public List<Invitation> ListSentInvites([FromBody] Dictionary<string, string> user)
+        public IList<Invitation> ListSentInvites([FromBody] Dictionary<string, string> user)
         {
             int headId = access.UserByName(user["User"]);
             int houseId = access.HhOfUser(headId);
@@ -118,7 +136,7 @@ namespace Wallet.Controllers
         // POST api/books/ListReceivedInvitations
         [HttpPost]
         [Route("ListReceivedInvitations")]
-        public List<Invitation> ListReceivedInvites([FromBody] Dictionary<string, string> user)
+        public IList<Invitation> ListReceivedInvites([FromBody] Dictionary<string, string> user)
         {
             int userId = access.UserByName(user["User"]);
             return access.InvitationsReceived(userId); 

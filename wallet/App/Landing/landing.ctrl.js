@@ -19,6 +19,9 @@
 
         vm.authenticate = authenticate
 
+        vm.users = []
+        listUsers() 
+
 
         /////////
         function authenticate() {
@@ -77,6 +80,14 @@
                     vm.error = v
                 }
             })
+        }
+
+        // List Users //
+        function listUsers() {
+            $http.get("/api/info/ListUsers")
+                .success(function (userList) {
+                    vm.users = userList
+                })
         }
     }
 })()

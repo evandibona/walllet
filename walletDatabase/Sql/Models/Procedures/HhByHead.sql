@@ -2,6 +2,6 @@
 	@UserId		int 
 AS
 
-SELECT Id
+SELECT ISNULL(MAX(Id), 0) 
 	FROM [Models].[Households]
 	WHERE Head=@UserId

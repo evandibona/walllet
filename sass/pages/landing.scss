@@ -4,6 +4,7 @@
 body.landing {
   background: #2980b9; 
   color: white; 
+  padding-bottom: 2em; 
 }
 
 div#landing-header {
@@ -21,6 +22,7 @@ div#landing-header h1 {
   border-radius: 10px;
   @include transparent; 
   border: 3px solid white; 
+  margin: 1em; 
 }
 
 
@@ -57,3 +59,6 @@ div#landing-header h1 {
   } 
 }
 
+#login-account-info {
+  text-align: right; 
+} 
