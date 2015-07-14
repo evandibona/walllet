@@ -129,8 +129,7 @@ namespace Wallet.Controllers
         public IList<Invitation> ListSentInvites([FromBody] Dictionary<string, string> user)
         {
             int headId = access.UserByName(user["User"]);
-            int houseId = access.HhOfUser(headId);
-            return access.InvitationsOfHouse(houseId); 
+            return access.InvitationsSent(headId); 
         }
 
         // POST api/books/ListReceivedInvitations
