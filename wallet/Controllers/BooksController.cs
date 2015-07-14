@@ -129,7 +129,20 @@ namespace Wallet.Controllers
         [Route("DeleteInvitation")]
         public int DeleteInvite([FromBody] Dictionary<string, int> choice)
         {
-            return access.InvitationRespond(choice["Id"], false); 
+            return access.InvitationRespond(choice["id"], false); 
+        }
+
+        // POST api/books/RespondToInvitation
+        [HttpPost]
+        [Route("RespondToInvitation")]
+        public int RespondToInvite([FromBody] Dictionary<string, int> a)
+        {
+            bool response = false;
+            if (a["response"] > 0)
+            {
+                response = true; 
+            }
+            return access.InvitationRespond(a["id"], response); 
         }
     }
 }

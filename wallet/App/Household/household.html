@@ -28,11 +28,11 @@
                 <h3> Received Invitations </h3>
                 <ul class="stacked-list received-invitation-list">
                     <li class="invitation-item" ng-repeat="invite in main.receivedInvites">
-                        <form class="pure-form" ng-submit="main.respondToInvite(invite.Id)">
-                                <h3>{{invite.Username}}</h3>
-                                <input type="submit" class="pure-button button-blue" value="Accept" />
-                                <input type="submit" class="pure-button button-red" value="Delete" />
-                        </form>
+                            <h3>{{invite.Username}}</h3>
+                            <input type="submit" class="pure-button button-blue" 
+                                   value="Accept" ng-click="main.respondToInvite(invite.Id, 1)" />
+                            <input type="submit" class="pure-button button-red"  
+                                   value="Decline" ng-click="main.respondToInvite(invite.Id, 0)" />
                     </li>
                 </ul>
             </div>

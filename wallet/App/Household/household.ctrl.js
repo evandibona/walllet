@@ -10,6 +10,7 @@
         vm.declareHouse = declareHouse
         vm.sendInvite = createInvitation
         vm.deleteInvite = deleteInvitation
+        vm.respondToInvite = respondToInvitation 
         reload() 
 
         /* 
@@ -38,7 +39,12 @@
         }
 
         function deleteInvitation(id) {
-            $http.post("/api/books/DeleteInvitation", { "Id": id })
+            $http.post("/api/books/DeleteInvitation", { "id": id })
+                .success(reload) 
+        }
+
+        function respondToInvitation(id, res) {
+            $http.post("/api/books/RespondToInvitation", { "id": id, "response": res })
                 .success(reload) 
         }
 
