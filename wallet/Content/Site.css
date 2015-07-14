@@ -38,6 +38,12 @@
   color: white;
   background: #16a085; }
 
+.pure-button-1 {
+  width: 100%; }
+
+.pure-button-1-2 {
+  width: 50%; }
+
 .pure-menu {
   background: #2c3e50; }
 
@@ -61,7 +67,7 @@ ul.pure-menu-children a {
   text-align: center;
   overflow: hidden;
   color: white; }
-  .tile h3 {
+  .tile h1, .tile h2, .tile h3, .tile h4 {
     margin: 0.3em;
     display: inline-block;
     letter-spacing: 1px; }
@@ -252,17 +258,8 @@ div#landing-header h1 {
   #new-transaction #amount {
     width: 40%; }
 
-.invitation-list h3 {
-  display: block;
-  font-size: 1.7em; }
-.invitation-list i {
-  display: block; }
-
-.invitation-item form {
-  text-align: left; }
-.invitation-item input {
-  float: right;
-  margin-left: 1em; }
+.invitation-item p {
+  margin: 0.4em 0; }
 
 /*  Universal Sitewide Styling  */
 @font-face {
