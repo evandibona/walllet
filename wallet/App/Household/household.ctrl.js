@@ -7,19 +7,13 @@
 
     function hhCtrl($http, authService) {
         var vm = this
+        vm.notifyStack = Notify
         vm.declareHouse = declareHouse
         vm.sendInvite = createInvitation
         vm.deleteInvite = deleteInvitation
         vm.respondToInvite = respondToInvitation 
         reload() 
 
-        /* 
-        * KEY FUNCTIONS
-        *   List members of subscribed list. ( + head )
-        *   Send Invitations
-        *   Receive invitations
-        *   Declared House
-        */
         ///////////
         function username() {
             authService.refresh()
@@ -87,7 +81,6 @@
             $http.post("/api/books/ListMembersByHead", { "user": username() })
                 .success(function (users) {
                     vm.myMembers = users
-                    console.log(users)
             })
 
         }

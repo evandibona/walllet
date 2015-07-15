@@ -208,6 +208,27 @@ ul.pure-menu-children a {
   border-top: 7px solid #e74c3c;
   color: #e74c3c; }
 
+.notify-stack {
+  position: absolute;
+  top: 3em;
+  right: 2em;
+  width: 250px;
+  text-align: left; }
+
+.notification {
+  background: white;
+  margin-bottom: 0.4em;
+  padding: 0.3em 0.5em; }
+  .notification h2, .notification h3, .notification p {
+    margin: 0; }
+
+.notification-clear {
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.8); }
+
+.hidden {
+  display: none; }
+
 body.landing {
   background: #2980b9;
   color: white;
