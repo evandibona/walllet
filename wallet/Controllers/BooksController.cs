@@ -113,12 +113,15 @@ namespace Wallet.Controllers
         [Route("CreateInvitation")] 
         public int CreateInvitation([FromBody] Dictionary<string, string> invite)
         {
-            var headId = access.UserByName(invite["From"]);
-            var userId = access.UserByName(invite["To"]);
-            var houseId = access.HhByHead(headId);
-            if (houseId != 0)
+            if ((invite["From"].Length > 0) && (invite["To"].Length > 0))
             {
-                return access.InsertInvitation(headId, userId, houseId); 
+                var headId = access.UserByName(invite["From"]);
+                var userId = access.UserByName(invite["To"]);
+                var houseId = access.HhByHead(headId);
+                if (houseId != 0)
+                {
+                    return access.InsertInvitation(headId, userId, houseId); 
+                }
             }
             return 0; 
         }
@@ -162,10 +165,18 @@ namespace Wallet.Controllers
             return access.InvitationRespond(a["id"], response); 
         }
 
-        // POST api/books/ListMembersByHead
+        // POST api/books/ListUsers
         [HttpPost]
-        [Route("ListMembersByHead")]
-        public IList<User> ListMembersByHead([FromBody] Dictionary<string, string> u)
+        [Route("ListUsers")] 
+        public IList<User> ListUsers()
+        {
+            return access.ListUsers(); 
+        }
+
+        // POST api/books/ListUsersByHead
+        [HttpPost]
+        [Route("ListUsersByHead")]
+        public IList<User> ListUsersByHead([FromBody] Dictionary<string, string> u)
         {
             int headId = access.UserByName(u["user"]); 
             int houseId = access.HhByHead(headId);

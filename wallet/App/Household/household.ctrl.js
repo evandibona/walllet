@@ -7,7 +7,6 @@
 
     function hhCtrl($http, authService) {
         var vm = this
-        vm.notifyStack = Notify
         vm.declareHouse = declareHouse
         vm.sendInvite = createInvitation
         vm.deleteInvite = deleteInvitation
@@ -41,6 +40,7 @@
             $http.post("/api/books/RespondToInvitation", { "id": id, "response": res })
                 .success(reload) 
         }
+
 
         function reload() {
             // Needed variables. 
@@ -78,9 +78,15 @@
             })
 
             // Refresh list of household members. 
-            $http.post("/api/books/ListMembersByHead", { "user": username() })
+            $http.post("/api/books/ListUsersByHead", { "user": username() })
                 .success(function (users) {
                     vm.myMembers = users
+            })
+            
+            // Refresh list of users. 
+            $http.post("/api/books/ListUsers")
+                .success(function (users) {
+                    vm.listUsers = users
             })
 
         }

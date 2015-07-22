@@ -229,6 +229,29 @@ ul.pure-menu-children a {
 .hidden {
   display: none; }
 
+.typeahead {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  position: fixed;
+  border: 1px solid #aaa;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); }
+
+.typeahead-list {
+  margin: 0;
+  padding: 0;
+  background: white;
+  color: #444;
+  list-style: none; }
+
+.typeahead-item {
+  border-top: 1px dotted #ccc;
+  padding: 3px 1em; }
+  .typeahead-item:first-child {
+    border-top: 0; }
+  .typeahead-item span {
+    font-weight: 500;
+    margin: 0 0.2em; }
+
 body.landing {
   background: #2980b9;
   color: white;

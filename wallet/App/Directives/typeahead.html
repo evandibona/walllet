@@ -1,0 +1,11 @@
+﻿<div>
+    <input id="user-search" type="text" ng-model="taModel" autocomplete="off" />
+
+    <div class="typeahead-menu">
+        <ul class="typeahead-list">
+            <li class="typeahead-item" ng-repeat="user in taDataList">
+                {{user.Name}} &bull; <span>{{user.Username}}</span>
+            </li>
+        </ul>
+    </div>
+</div>
