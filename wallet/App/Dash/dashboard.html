@@ -5,50 +5,87 @@
      ng-controller="Dashboard as main">
 
 
-    <!--
     <div class="pure-g">
-        <div class="pure-u-1-1 pure-u-sm-1-2 pure-u-md-1-4">
-            <div id="recent-transactions" class="tile tile-green-sea transactions">
-                <h3>Recent Transactions</h3>
-                <ul class="stacked-list">
-                    <li ng-repeat="tx in main.recentTransactions" class="transaction">
-                        <div class="transaction-head">
-                            <h4 class="transaction-date"> {{tx.date}} </h4>
-                            <h4 class="transaction-name"> {{tx.user}} </h4>
+        <div class="pure-u-1 pure-u-md-1-4">
+            <div id="real-balance" class="tile widget widget-purple">
+                <span class="widget-value"> {{main.assignedHouse}} </span>
+                <span class="widget-s">My Current Household</span>
+            </div>
+            <div id="received-invitations" class="tile tile-wisteria">
+                <h3> Received Invitations </h3>
+                <ul class="stacked-list received-invitation-list">
+                    <li class="invitation-item" ng-repeat="invite in main.receivedInvites">
+                        <div class="pure-g">
+                            <div class="pure-u-1-2">
+                                <p> {{invite.Username}} &bull; <i> {{invite.Name}} </i> </p>
+                            </div>
+                            <div class="pure-u-1-4">
+                                <input type="submit" class="pure-button button-red pure-button-1"  
+                                       value="Decline" ng-click="main.respondToInvite(invite.Id, 0)" />
+                            </div>
+                            <div class="pure-u-1-4">
+                                <input type="submit" class="pure-button button-blue pure-button-1" 
+                                       value="Accept" ng-click="main.respondToInvite(invite.Id, 1)" />
+                            </div>
                         </div>
-                        <span>{{tx.amnt}}</span>
-                        <p><i>{{tx.desc}}</i></p>
                     </li>
                 </ul>
-            </div>
-        </div>
-        <div class="pure-u-1-1 pure-u-sm-1-2 pure-u-md-1-4">
-            <div id="bank-accounts" class="tile tile-sun-flower">
-                <h3>Bank Accounts</h3>
-                <ul class="stacked-list">
-                    <li class="account-label"
-                        ng-repeat="(name, balance) in main.bankAccounts">
-                        <h4 > {{name}} </h4>
-                        <p>&nbsp;&nbsp;</p>
-                        <span> {{balance}}</span>
-                    </li>
-                </ul>
-            </div>
-            <div id="real-balance" class="tile widget widget-red">
-                <span class="widget-value"> {{main.hhBalanceReal}} </span>
-                <span class="widget-s">calculated balance</span>
-            </div>
-            <div class="tile widget widget-purple">
-                <span class="widget-value">{{main.hhBalanceEst}} </span>
-                <span class="widget-s">Est. balance</span>
             </div>
         </div>
         <div class="pure-u-1-1 pure-u-md-1-2">
-            <div class="tile tile-belize-hole pools">
-                <h3>Budget</h3>
-                <div id="canvas"></div>
+            <div id="my-transactions" class="tile tile-sun-flower transactions">
+                <h3>My Transactions</h3>
+                <table class="pure-table pure-table-bordered tile-table">
+                    <thead>
+                        <tr>
+                            <th>Amount</th>
+                            <th>Description</th>
+                            <th>Date Created</th>
+                            <th>Creator</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="tx in main.transactions">
+                            
+                            <td>{{tx.Amount}}</td>
+                            <td>{{tx.Description}}</td>
+                            <td>{{tx.Created}}</td>
+                            <td>{{tx.Name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
-    -->
+
+        <div class="pure-u-1-1 pure-u-sm-1-2 pure-u-lg-1-4">
+            <div id="new-transaction" class="tile tile-belize-hole">
+                <h3>Enter A Transaction</h3>
+                <div class="tile-body">
+                    <form class="pure-form pure-form-stacked" ng-submit="main.newTransaction()">
+                        <fieldset>
+                            <label for="description">Description</label>
+                            <input id="description" type="text" placeholder="Simple Description" ng-model="main.newTx['description']" />
+
+                            <label for="amount">Amount</label>
+                            <input id="amount" type="text" placeholder="0.00" ng-model="main.newTx['amount']" />
+
+                            <label for="spent" class="pure-radio">
+                                <input id="spent" type="radio" name="priceRadios" value="0" ng-model="main.newTx['flow']" />
+                                Spent
+                            </label>
+
+                            <label for="earned" class="pure-radio">
+                                <input id="earned" type="radio" name="priceRadios" value="1" ng-model="main.newTx['flow']" />
+                                Earned
+                            </label>
+                        </fieldset>
+                        <input type="submit" class="pure-button pure-button-belize-hole" />
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- End of pure-g-->
+    <div class="pure-g">
+    </div> <!-- End of pure-g-->
 </div>

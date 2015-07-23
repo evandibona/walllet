@@ -68,13 +68,12 @@ namespace Wallet.Controllers
             return access.InsertTransaction(tx); 
         }
 
-        // POST api/books/GetTransactionsByUser
+        // POST api/books/GetTransactionsOfUser
         [HttpPost]
-        [Route("GetTransactionsByUser")] 
-        public IList<Transaction> GetTxByUser([FromBody] Dictionary<string,string> user)
+        [Route("GetTransactionsOfUser")] 
+        public IList<Transaction> GetTxByUser([FromBody] Dictionary<string,string> n)
         {
-            var abc = access.GetTransactionsByUser(user["user"]); 
-            return abc; 
+            return access.GetTransactionsOfUser(n["name"]); 
         }
 
         // POST api/books/AssignedHouse

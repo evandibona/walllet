@@ -237,8 +237,6 @@
     <Content Include="App\Directives\typeahead.html" />
     <Content Include="App\Directives\typeahead.js" />
     <Content Include="App\Services\notifyService.js" />
-    <Content Include="App\Transactions\transactions.ctrl.js" />
-    <Content Include="App\Transactions\transactions.html" />
     <Content Include="App\Household\household.ctrl.js" />
     <Content Include="App\Household\household.html" />
     <Content Include="App\History\history.html" />

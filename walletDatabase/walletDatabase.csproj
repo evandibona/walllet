@@ -113,7 +113,7 @@
     <EmbeddedResource Include="Sql\Models\Tables\Pools.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Models\Procedures\GetTransactions.sql" />
+    <EmbeddedResource Include="Sql\Models\Procedures\GetTransactionsOfUser.sql" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Sql\Models\Procedures\InsertTransaction.sql" />

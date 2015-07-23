@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [Models].[GetTransactionsByUser] 
+﻿CREATE PROCEDURE [Models].[GetTransactionsOfUser] 
 	@username nvarchar(30) 
 AS
 

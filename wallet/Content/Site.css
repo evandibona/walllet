@@ -223,7 +223,7 @@ ul.pure-menu-children a {
     margin: 0; }
 
 .notification-clear {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
   color: rgba(255, 255, 255, 0.8); }
 
 .hidden {
@@ -311,15 +311,6 @@ div#landing-header h1 {
   text-align: center; }
   #bank-accounts .account-label * {
     display: inline; }
-
-#new-transaction {
-  background: #225588; }
-  #new-transaction input#description {
-    max-width: 100%; }
-  #new-transaction #description {
-    width: 100%; }
-  #new-transaction #amount {
-    width: 40%; }
 
 .invitation-item p {
   margin: 0.4em 0; }

@@ -12,7 +12,7 @@ namespace Wallet.Models.Database
         IList<HistoryAction> GetHistoricalActions(string UserName);
 
         int InsertTransaction(InsertTransaction tx);
-        IList<Transaction> GetTransactionsByUser(string username);
+        IList<Transaction> GetTransactionsOfUser(string username);
 
         int UserByName(string username); 
 
